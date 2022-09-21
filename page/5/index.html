@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-find" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/20/find/" class="article-date">
+  <time class="dt-published" datetime="2022-09-20T18:53:08.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/20/find/">find</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-prototype-find"><a href="#Array-prototype-find" class="headerlink" title="Array.prototype.find"></a>Array.prototype.find</h1><p>find() 返回方法列表中满足测试函数的第一个元素的值，没有则返回<code>undefind</code></p>
+<ul>
+<li>如果要找到元素的索引，请使用<a href="/2022/09/20/findIndex/" title="findIndex">Array.prototype.findIndex</a></li>
+</ul>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="title function_">find</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125; )</span><br><span class="line"><span class="title function_">find</span>(<span class="function">(<span class="params">element, index</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125; )</span><br><span class="line"><span class="title function_">find</span>(<span class="function">(<span class="params">element, index, array</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125; )</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line"><span class="title function_">find</span>(callbackFn)</span><br><span class="line"><span class="title function_">find</span>(callbackFn, thisArg)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内联回调函数</span></span><br><span class="line"><span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">element</span>) &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">element, index</span>) &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">element, index, array</span>)&#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">element, index, array</span>) &#123; <span class="comment">/* … */</span> &#125;, thisArg)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/20/find/" data-id="cl8axqh0e0008ivoof4ox3hxh" data-title="find" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-prototype-find/" rel="tag">Array.prototype.find</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-filter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/20/filter/" class="article-date">
+  <time class="dt-published" datetime="2022-09-20T18:53:04.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/20/filter/">filter</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter"></a>Array.prototype.filter</h1><p>filter() 方法创建给定数组一部分的<code>浅拷贝</code>，其包含通过所提供函数实现的测试的所有元素。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="title function_">filter</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125; )</span><br><span class="line"><span class="title function_">filter</span>(<span class="function">(<span class="params">element, index</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125; )</span><br><span class="line"><span class="title function_">filter</span>(<span class="function">(<span class="params">element, index, array</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125; )</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内联回调函数</span></span><br><span class="line"><span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">element</span>) &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">element, index</span>) &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">element, index, array</span>)&#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">element, index, array</span>) &#123; <span class="comment">/* … */</span> &#125;, thisArg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>callback</code></p>
+<p>​	回调函数，函数返回true则代表该元素通过函数内的测试，保留该元素；返回false则没通过函数内的测试，舍弃该元素</p>
+<p>​	接受以下三个参数：</p>
+<p>​	<code>element</code></p>
+<p>​		当前元素</p>
+<p>​	<code>index</code></p>
+<p>​		当前元素的索引值</p>
+<p>​	<code>array</code></p>
+<p>​		调用filter的数组</p>
+<p><code>thisArg</code>	<code>可选</code></p>
+<p>​	执行回调函数时使用的this</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>一个新的数组，由测试的元素组成，如果没有元素通过测试则返回空数组</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>找出符合条件的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">12</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">130</span>, <span class="number">44</span>]</span><br><span class="line">arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">v</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> v&gt; <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [12,130,44]</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/20/filter/" data-id="cl8axqh0c0005ivoofape3g5i" data-title="filter" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-prototype-filter/" rel="tag">Array.prototype.filter</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fill" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/20/fill/" class="article-date">
+  <time class="dt-published" datetime="2022-09-20T18:52:59.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/20/fill/">fill</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-prototype-fill"><a href="#Array-prototype-fill" class="headerlink" title="Array.prototype.fill"></a>Array.prototype.fill</h1><p>fill() 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。</p>
+<h3 id="注意：此方法会修改原数组"><a href="#注意：此方法会修改原数组" class="headerlink" title="注意：此方法会修改原数组"></a>注意：此方法会修改原数组</h3><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fill</span>(value)</span><br><span class="line"><span class="title function_">fill</span>(value, start)</span><br><span class="line"><span class="title function_">fill</span>(value, start, end)</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>value</code></p>
+<p>​	用来填充数组的值</p>
+<p><code>start</code>   <code>可选</code></p>
+<p>​	起始索引，不填则为0</p>
+<p><code>end</code>	<code>可选</code></p>
+<p>​	终止索引，不填则为<code>arr.length - 1</code></p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>修改后的数组</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>);               <span class="comment">// [4, 4, 4]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, <span class="number">1</span>);            <span class="comment">// [1, 4, 4]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>);         <span class="comment">// [1, 4, 3]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>);         <span class="comment">// [1, 2, 3]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, <span class="number">3</span>, <span class="number">3</span>);         <span class="comment">// [1, 2, 3]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, -<span class="number">3</span>, -<span class="number">2</span>);       <span class="comment">// [4, 2, 3]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, <span class="title class_">NaN</span>, <span class="title class_">NaN</span>);     <span class="comment">// [1, 2, 3]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">fill</span>(<span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>);         <span class="comment">// [1, 2, 3]</span></span><br><span class="line"><span class="title class_">Array</span>(<span class="number">3</span>).<span class="title function_">fill</span>(<span class="number">4</span>);                <span class="comment">// [4, 4, 4]</span></span><br><span class="line">[].<span class="property">fill</span>.<span class="title function_">call</span>(&#123; <span class="attr">length</span>: <span class="number">3</span> &#125;, <span class="number">4</span>);  <span class="comment">// &#123;0: 4, 1: 4, 2: 4, length: 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Objects by reference.</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>(<span class="number">3</span>).<span class="title function_">fill</span>(&#123;&#125;) <span class="comment">// [&#123;&#125;, &#123;&#125;, &#123;&#125;];</span></span><br><span class="line"><span class="comment">// 需要注意如果 fill 的参数为引用类型，会导致都执行同一个引用类型</span></span><br><span class="line"><span class="comment">// 如 arr[0] === arr[1] 为 true</span></span><br><span class="line">arr[<span class="number">0</span>].<span class="property">hi</span> = <span class="string">&quot;hi&quot;</span>; <span class="comment">// [&#123; hi: &quot;hi&quot; &#125;, &#123; hi: &quot;hi&quot; &#125;, &#123; hi: &quot;hi&quot; &#125;]</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/20/fill/" data-id="cl8axqh0b0004ivoo7h3c2fcz" data-title="fill" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-prototype-fill/" rel="tag">Array.prototype.fill</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-every" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/20/every/" class="article-date">
+  <time class="dt-published" datetime="2022-09-20T18:52:55.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/20/every/">every</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-prototype-every"><a href="#Array-prototype-every" class="headerlink" title="Array.prototype.every"></a>Array.prototype.every</h1><p>every()  方法测试一个数组内的所有元素是否都能通过某个指定的函数测试。返回的是布尔值</p>
+<p>此方法不会改变原数组</p>
+<h3 id="注意：若收到一个空数组，则任何情况下都会返回-true"><a href="#注意：若收到一个空数组，则任何情况下都会返回-true" class="headerlink" title="注意：若收到一个空数组，则任何情况下都会返回 true"></a>注意：若收到一个空数组，则任何情况下都会返回 <code>true</code></h3><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//箭头函数</span></span><br><span class="line"><span class="title function_">every</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">every</span>(<span class="function">(<span class="params">element, index</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">every</span>(<span class="function">(<span class="params">element, index, array</span>) =&gt;</span> &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内联回调函数</span></span><br><span class="line"><span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">element</span>) &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">element, index</span>) &#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">element, index, array</span>)&#123; <span class="comment">/* … */</span> &#125;)</span><br><span class="line"><span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">element, index, array</span>) &#123; <span class="comment">/* … */</span> &#125;, thisArg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>callback</code></p>
+<p>用来测试每个元素的函数，同时可以接受三个参数：</p>
+<p>​	<code>element</code></p>
+<p>​		用来测试的当前值</p>
+<p>​	<code>index</code></p>
+<p>​		用来测试的当前值的索引</p>
+<p>​	<code>array</code></p>
+<p>​		调用every的当前数组</p>
+<p><code>thisArg</code>	<code>可选</code></p>
+<p>​	执行 <code>callback</code> 时使用的 <code>this</code> 值。</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>如果回调函数的每一次返回都为真值，返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<p>(真值是指除 <code>false</code>、<code>0</code>、<code>-0</code>、<code>0n</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code> 和 <code>NaN</code> 以外所有的值)</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>检测数组里所有的元素是否大于10</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">5</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">18</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">14</span>]</span><br><span class="line"></span><br><span class="line">arr.<span class="title function_">every</span>(<span class="keyword">function</span> (<span class="params">element, index, array</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> element &gt; <span class="number">10</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//箭头函数 更简洁</span></span><br><span class="line">arr.<span class="title function_">every</span>(<span class="function"><span class="params">v</span> =&gt;</span> v&gt;<span class="number">10</span>) <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">15</span>,<span class="number">19</span>,<span class="number">11</span>,<span class="number">18</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">14</span>]</span><br><span class="line"></span><br><span class="line">arr1.<span class="title function_">every</span>(<span class="keyword">function</span> (<span class="params">element, index, array</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> element &gt; <span class="number">10</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//箭头函数 更简洁</span></span><br><span class="line">arr1.<span class="title function_">every</span>(<span class="function"><span class="params">v</span> =&gt;</span> v&gt;<span class="number">10</span>) <span class="comment">//true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/20/every/" data-id="cl8axqh0a0003ivoo6fbsfu07" data-title="every" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-prototype-every/" rel="tag">Array.prototype.every</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-content" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/20/content/" class="article-date">
+  <time class="dt-published" datetime="2022-09-20T18:52:49.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/20/content/">content</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-prototype-content"><a href="#Array-prototype-content" class="headerlink" title="Array.prototype.content"></a>Array.prototype.content</h1><p>content()  方法用于合并两个或多个数组，返回一个新的数组而不改变原数组</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">concat</span>()</span><br><span class="line"><span class="title function_">concat</span>(value0)</span><br><span class="line"><span class="title function_">concat</span>(value0, value1)</span><br><span class="line"><span class="title function_">concat</span>(value0, value1, <span class="comment">/* … ,*/</span> valueN)</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>value  （可选）</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>Array </p>
+<p>​	返回一个新的数组</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>​	链接两个数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="keyword">let</span> arr3 = arr1.<span class="title function_">content</span>(arr2)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr3)   <span class="comment">//1,2,3,4,5,6</span></span><br></pre></td></tr></table></figure>
+
+<p>​	在最新的es6语法中也可以这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="keyword">let</span> arr3 = [...arr1,...arr2]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr3)   <span class="comment">///1,2,3,4,5,6</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/09/20/content/" data-id="cl8axqh070001ivooen7qb1i5" data-title="content" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-prototype-content/" rel="tag">Array.prototype.content</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-content/" rel="tag">Array.prototype.content</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-every/" rel="tag">Array.prototype.every</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-fill/" rel="tag">Array.prototype.fill</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-filter/" rel="tag">Array.prototype.filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-find/" rel="tag">Array.prototype.find</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" rel="tag">Array对象的方法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Array-prototype-content/" style="font-size: 10px;">Array.prototype.content</a> <a href="/tags/Array-prototype-every/" style="font-size: 10px;">Array.prototype.every</a> <a href="/tags/Array-prototype-fill/" style="font-size: 10px;">Array.prototype.fill</a> <a href="/tags/Array-prototype-filter/" style="font-size: 10px;">Array.prototype.filter</a> <a href="/tags/Array-prototype-find/" style="font-size: 10px;">Array.prototype.find</a> <a href="/tags/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" style="font-size: 10px;">Array对象的方法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/21/hello-world/">首页</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/20/values/">values</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/20/unshift/">unshift</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/20/splice/">splice</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/20/soft/">soft</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
