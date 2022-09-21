@@ -6,14 +6,17 @@
   
   <title>includes | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Array.prototype.includesincludes()  方法判断一个数组中是否包含一个指定的值，包含返回true，不包含返回false 注意：该方法比较字符串和字符时区分大小写语法12includes(searchElement)includes(searchElement, fromIndex)  参数searchElement ​	需要查找元素的值 fromIndex	可选 ​">
+<meta property="og:type" content="article">
 <meta property="og:title" content="includes">
 <meta property="og:url" content="http://example.com/2022/09/20/includes/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Array.prototype.includesincludes()  方法判断一个数组中是否包含一个指定的值，包含返回true，不包含返回false 注意：该方法比较字符串和字符时区分大小写语法12includes(searchElement)includes(searchElement, fromIndex)  参数searchElement ​	需要查找元素的值 fromIndex	可选 ​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-20T18:53:30.000Z">
-<meta property="article:modified_time" content="2022-09-21T01:16:50.828Z">
+<meta property="article:modified_time" content="2022-09-21T04:03:40.872Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Array.prototype.includes">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -93,14 +96,34 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes"></a>Array.prototype.includes</h1><p>includes()  方法判断一个数组中是否包含一个指定的值，包含返回<code>true</code>，不包含返回<code>false</code></p>
+<h4 id="注意：该方法比较字符串和字符时区分大小写"><a href="#注意：该方法比较字符串和字符时区分大小写" class="headerlink" title="注意：该方法比较字符串和字符时区分大小写"></a>注意：该方法比较字符串和字符时区分大小写</h4><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">includes</span>(searchElement)</span><br><span class="line"><span class="title function_">includes</span>(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>searchElement</code></p>
+<p>​	需要查找元素的值</p>
+<p><code>fromIndex</code>	<code>可选</code></p>
+<p>​	从数组的第几项开始查找</p>
+<p>​	如果该值为负数，计算出的索引将作为开始搜索<code>searchElement</code>的索引，如果计算的结果小于0，则搜索整个数组</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p><code>boolean</code></p>
+<p>​	返回一个布尔值<code>boolean</code>，如果在数组或者<code>formIndex</code>指定下标开始查找的范围内找到<code>searchElement</code>，则返回<code>true</code>，否则返回<code>false</code></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">1</span>) <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">4</span>) <span class="comment">// false</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">3</span>,<span class="number">3</span>) <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">2</span>,-<span class="number">1</span>) <span class="comment">// false</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">3</span>,-<span class="number">1</span>) <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="title class_">NaN</span>].<span class="title function_">includes</span>(<span class="title class_">Nan</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>formIndex大于数组长度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">2</span>,<span class="number">4</span>) <span class="comment">// false</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">2</span>,<span class="number">100</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>formIndex为负数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">2</span>,-<span class="number">2</span>) <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">1</span>,-<span class="number">2</span>) <span class="comment">// false</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">includes</span>(<span class="number">2</span>,-<span class="number">100</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/20/includes/" data-id="cl8axqh0k000hivoo1oqzgayf" data-title="includes" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/20/includes/" data-id="cl8b3p260000hz3so3majat7q" data-title="includes" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array-prototype-includes/" rel="tag">Array.prototype.includes</a></li></ul>
+
     </footer>
   </div>
   
@@ -139,7 +162,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-content/" rel="tag">Array.prototype.content</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-every/" rel="tag">Array.prototype.every</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-fill/" rel="tag">Array.prototype.fill</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-filter/" rel="tag">Array.prototype.filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-find/" rel="tag">Array.prototype.find</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" rel="tag">Array对象的方法</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-portotype-forEach/" rel="tag">Array.portotype.forEach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-content/" rel="tag">Array.prototype.content</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-every/" rel="tag">Array.prototype.every</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-fill/" rel="tag">Array.prototype.fill</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-filter/" rel="tag">Array.prototype.filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-find/" rel="tag">Array.prototype.find</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-findIndex/" rel="tag">Array.prototype.findIndex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-findLastIndex/" rel="tag">Array.prototype.findLastIndex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-includes/" rel="tag">Array.prototype.includes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-indexOf/" rel="tag">Array.prototype.indexOf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-join/" rel="tag">Array.prototype.join</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array-prototype-map/" rel="tag">Array.prototype.map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" rel="tag">Array对象的方法</a></li></ul>
     </div>
   </div>
 
@@ -149,7 +172,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Array-prototype-content/" style="font-size: 10px;">Array.prototype.content</a> <a href="/tags/Array-prototype-every/" style="font-size: 10px;">Array.prototype.every</a> <a href="/tags/Array-prototype-fill/" style="font-size: 10px;">Array.prototype.fill</a> <a href="/tags/Array-prototype-filter/" style="font-size: 10px;">Array.prototype.filter</a> <a href="/tags/Array-prototype-find/" style="font-size: 10px;">Array.prototype.find</a> <a href="/tags/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" style="font-size: 10px;">Array对象的方法</a>
+      <a href="/tags/Array-portotype-forEach/" style="font-size: 10px;">Array.portotype.forEach</a> <a href="/tags/Array-prototype-content/" style="font-size: 10px;">Array.prototype.content</a> <a href="/tags/Array-prototype-every/" style="font-size: 10px;">Array.prototype.every</a> <a href="/tags/Array-prototype-fill/" style="font-size: 10px;">Array.prototype.fill</a> <a href="/tags/Array-prototype-filter/" style="font-size: 10px;">Array.prototype.filter</a> <a href="/tags/Array-prototype-find/" style="font-size: 10px;">Array.prototype.find</a> <a href="/tags/Array-prototype-findIndex/" style="font-size: 10px;">Array.prototype.findIndex</a> <a href="/tags/Array-prototype-findLastIndex/" style="font-size: 10px;">Array.prototype.findLastIndex</a> <a href="/tags/Array-prototype-includes/" style="font-size: 10px;">Array.prototype.includes</a> <a href="/tags/Array-prototype-indexOf/" style="font-size: 10px;">Array.prototype.indexOf</a> <a href="/tags/Array-prototype-join/" style="font-size: 10px;">Array.prototype.join</a> <a href="/tags/Array-prototype-map/" style="font-size: 10px;">Array.prototype.map</a> <a href="/tags/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" style="font-size: 10px;">Array对象的方法</a>
     </div>
   </div>
 
