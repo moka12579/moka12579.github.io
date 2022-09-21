@@ -2,6 +2,8 @@
 title: Array对象的方法
 date: 2022-09-20 18:44:03
 tags: Array对象的方法
+categories:
+ - js基础
 ---
 
 # Array对象的方法

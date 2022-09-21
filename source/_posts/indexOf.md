@@ -2,6 +2,9 @@
 title: indexOf
 date: 2022-09-20 18:53:35
 tags: Array.prototype.indexOf
+categories:
+ - js基础
+  - Array对象的方法
 ---
 
 # Array.prototype.indexOf

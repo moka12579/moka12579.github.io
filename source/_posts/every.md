@@ -2,6 +2,9 @@
 title: every
 date: 2022-09-20 18:52:55
 tags: Array.prototype.every
+categories:
+ - js基础
+  - Array对象的方法
 ---
 
 # Array.prototype.every

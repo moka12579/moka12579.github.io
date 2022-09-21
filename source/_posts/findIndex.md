@@ -2,6 +2,9 @@
 title: findIndex
 date: 2022-09-20 18:53:10
 tags: Array.prototype.findIndex
+categories:
+ - js基础
+  - Array对象的方法
 ---
 
 # Array.prototype.findIndex
