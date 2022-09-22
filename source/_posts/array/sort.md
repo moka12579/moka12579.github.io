@@ -3,7 +3,8 @@ title: sort
 date: 2022-09-20 18:54:26
 tags: array
 categories:
-  - Array对象的方法
+ - js基础
+ - Array对象的方法
 ---
 
 # Array.prototypr.sort

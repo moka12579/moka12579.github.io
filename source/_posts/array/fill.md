@@ -3,6 +3,7 @@ title: fill
 date: 2022-09-20 18:52:59
 tags: array
 categories:
+ - js基础
  - Array对象的方法
 ---
 
