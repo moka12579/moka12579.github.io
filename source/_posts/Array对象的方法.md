@@ -8,25 +8,26 @@ categories:
 
 # Array对象的方法
 
-- {% post_link content  Array.prototype.content %}
-- {% post_link every Array.prototype.every %}
-- {% post_link fill Array.prototype.fill %}
-- {% post_link filter Array.prototype.filter %}
-- {% post_link find Array.prototype.find %}
-- {% post_link findIndex Array.prototype.findIndex %}
-- {% post_link findLastIndex Array.prototype.findLastIndex %}
-- {% post_link forEach Array.prototype.forEach %}
-- {% post_link includes Array.prototype.includes %}
-- {% post_link indexOf Array.prototype.indexOf %}
-- {% post_link join Array.prototype.join %}
-- {% post_link map Array.prototype.map %}
-- {% post_link pop Array.prototype.pop %}
-- {% post_link push Array.prototype.push %}
-- {% post_link reverse Array.prototype.reverse %}
-- {% post_link shift Array.prototype.shift %}
-- {% post_link slice Array.prototype.slice %}
-- {% post_link some Array.prototype.some %}
-- {% post_link soft Array.prototype.soft %}
-- {% post_link splice Array.prototype.splice %}
-- {% post_link unshift Array.prototype.unshift %}
-- {% post_link values Array.prototype.values %}
+- ### {% post_link array/content  %}
+
+- ### {% post_link array/every %}
+
+- ### {% post_link array/fill %}
+- ### {% post_link array/filter  %}
+- ### {% post_link array/find  %}
+- ### {% post_link array/findIndex  %}
+- ### {% post_link array/findLastIndex  %}
+- ### {% post_link array/forEach  %}
+- ### {% post_link array/includes  %}
+- ### {% post_link array/indexOf  %}
+- ### {% post_link array/join  %}
+- ### {% post_link array/map  %}
+- ### {% post_link array/pop  %}
+- ### {% post_link array/push  %}
+- ### {% post_link array/reverse  %}
+- ### {% post_link array/shift  %}
+- ### {% post_link array/slice  %}
+- ### {% post_link array/some  %}
+- ### {% post_link array/sort  %}
+- ### {% post_link array/splice  %}
+- ### {% post_link array/unshift  %}

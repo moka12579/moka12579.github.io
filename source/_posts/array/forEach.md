@@ -1,9 +1,8 @@
 ---
 title: forEach
 date: 2022-09-20 18:53:24
-tags: Array.portotype.forEach
+tags: array
 categories:
- - js基础
   - Array对象的方法
 ---
 

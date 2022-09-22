@@ -1,9 +1,8 @@
 ---
 title: find
 date: 2022-09-20 18:53:08
-tags: Array.prototype.find
+tags: array
 categories:
- - js基础
   - Array对象的方法
 ---
 
@@ -11,7 +10,7 @@ categories:
 
 find() 返回方法列表中满足测试函数的第一个元素的值，没有则返回`undefind`
 
-- 如果要找到元素的索引，请使用{% post_link findIndex Array.prototype.findIndex %}
+- 如果要找到元素的索引，请使用{% post_link array/findIndex %}
 
 ### 语法
 

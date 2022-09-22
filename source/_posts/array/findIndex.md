@@ -1,9 +1,8 @@
 ---
 title: findIndex
 date: 2022-09-20 18:53:10
-tags: Array.prototype.findIndex
+tags: array
 categories:
- - js基础
   - Array对象的方法
 ---
 
@@ -11,7 +10,7 @@ categories:
 
 findIndex()方法返回当前数组中满足提供的测试函数的第一个元素的索引，若都不满足则返回-1
 
-- 若要找到元素，请使用{% post_link find Array.prototype.find %}
+- 若要找到元素，请使用{% post_link array/find %}
 
 ### 语法
 

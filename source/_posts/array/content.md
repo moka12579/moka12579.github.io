@@ -1,10 +1,9 @@
 ---
 title: content
 date: 2022-09-20 18:52:49
-tags: Array.prototype.content
+tags: array
 categories:
- - js基础
-  - Array对象的方法
+ - Array对象的方法
 ---
 
 # Array.prototype.content

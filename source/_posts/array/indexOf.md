@@ -1,9 +1,8 @@
 ---
 title: indexOf
 date: 2022-09-20 18:53:35
-tags: Array.prototype.indexOf
+tags: array
 categories:
- - js基础
   - Array对象的方法
 ---
 
@@ -15,7 +14,7 @@ indexOf()方法返回找到指定元素的下标，没有找到就返回-1
 
 - 该方法使用的全等 `===` 比较
 
-- 该方法不能用于查找对象，如果要查找数组里对象的下标，请使用{% post_link findIndex %}
+- 该方法不能用于查找对象，如果要查找数组里对象的下标，请使用{% post_link array/findIndex %}
 
 ### 语法
 
