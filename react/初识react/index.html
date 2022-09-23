@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="初识React预备知识需要掌握JavaScript 需要掌握的JavaScript基础知识​	判断 this 的指向 ​	class (类) ​	es6语法规范 ​	npm包管理器 ​	原型、原型链 ​	数组常用方法 ​	模块化 认识React​	React是将数据渲染为HTML视图的开源JavaScript库 ​	以往写html网页需要三步： ​		1. 发送请求获取数据 ​		2. 处理数据（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识React">
+<meta property="og:url" content="http://example.com/react/%E5%88%9D%E8%AF%86react/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="初识React预备知识需要掌握JavaScript 需要掌握的JavaScript基础知识​	判断 this 的指向 ​	class (类) ​	es6语法规范 ​	npm包管理器 ​	原型、原型链 ​	数组常用方法 ​	模块化 认识React​	React是将数据渲染为HTML视图的开源JavaScript库 ​	以往写html网页需要三步： ​		1. 发送请求获取数据 ​		2. 处理数据（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/react/%E5%88%9D%E8%AF%86react/js.png">
+<meta property="og:image" content="http://example.com/react/%E5%88%9D%E8%AF%86react/js1.png">
+<meta property="og:image" content="http://example.com/react/%E5%88%9D%E8%AF%86react/react1.png">
+<meta property="article:published_time" content="2022-09-22T11:55:48.000Z">
+<meta property="article:modified_time" content="2022-09-23T00:44:54.980Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/react/%E5%88%9D%E8%AF%86react/js.png">
+
+
+<link rel="canonical" href="http://example.com/react/%E5%88%9D%E8%AF%86react/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/react/%E5%88%9D%E8%AF%86react/","path":"react/初识react/","title":"初识React"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>初识React | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%AF%86React"><span class="nav-number">1.</span> <span class="nav-text">初识React</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.</span> <span class="nav-text">预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.1.</span> <span class="nav-text">需要掌握的JavaScript基础知识</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86React"><span class="nav-number">2.</span> <span class="nav-text">认识React</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E4%B8%8E%E6%97%B6%E9%97%B4%E7%82%B9"><span class="nav-number">2.0.1.</span> <span class="nav-text">开发人员与时间点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%91%E5%8D%81%E5%B9%B4%E2%80%9C%E9%99%88%E9%85%BF%E2%80%9D-React%E6%AD%A3%E5%9C%A8%E8%A2%AB%E8%85%BE%E8%AE%AF%E3%80%81%E9%98%BF%E9%87%8C%E7%AD%89%E4%B8%80%E7%BA%BF%E5%A4%A7%E5%8E%82%E5%B9%BF%E6%B3%9B%E4%BD%BF%E7%94%A8"><span class="nav-number">2.0.1.0.1.</span> <span class="nav-text">近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">为什么要学？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%99%E5%8F%AB%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A0%81"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">这叫命令式编码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%99%E5%8F%AB%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%BC%96%E7%A0%81"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">这叫声明式编码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%99%BD%E7%88%BD%EF%BC%8C%E4%BD%86%E6%98%AF%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.0.0.0.3.</span> <span class="nav-text">虽爽，但是需要学习</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E5%BC%A0%E5%9B%BE%E8%A7%A3%E9%87%8A"><span class="nav-number">4.</span> <span class="nav-text">几张图解释</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/react/%E5%88%9D%E8%AF%86react/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="初识React | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初识React
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-22 11:55:48" itemprop="dateCreated datePublished" datetime="2022-09-22T11:55:48+00:00">2022-09-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-23 00:44:54" itemprop="dateModified" datetime="2022-09-23T00:44:54+00:00">2022-09-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/resct%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">resct基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="初识React"><a href="#初识React" class="headerlink" title="初识React"></a>初识React</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>需要掌握<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" title="" target="">JavaScript</a></p>
+<h3 id="需要掌握的JavaScript基础知识"><a href="#需要掌握的JavaScript基础知识" class="headerlink" title="需要掌握的JavaScript基础知识"></a>需要掌握的JavaScript基础知识</h3><p>​	判断 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" title="" target="">this</a> 的指向</p>
+<p>​	<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class" title="" target="">class</a> (类)</p>
+<p>​	es6语法规范</p>
+<p>​	npm包管理器</p>
+<p>​	原型、<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" title="" target="">原型链</a></p>
+<p>​	<a href="/Array%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" title="Array对象的方法">数组常用方法</a></p>
+<p>​	模块化</p>
+<h1 id="认识React"><a href="#认识React" class="headerlink" title="认识React"></a>认识React</h1><p>​	React是将数据渲染为HTML视图的开源JavaScript库</p>
+<p>​	以往写html网页需要三步：</p>
+<p>​		1. 发送请求获取数据</p>
+<p>​		2. 处理数据（过滤，格式整理等）</p>
+<p>​		3. 操作dom，将数据呈现到页面上</p>
+<h3 id="开发人员与时间点"><a href="#开发人员与时间点" class="headerlink" title="开发人员与时间点"></a>开发人员与时间点</h3><p>​		由Facebook的软件工程师 Jordan Walke 开发，并且并且开源</p>
+<p>​		于2011年部署于 Facebook 的 newsfeed (就是一个页面，类似于微博首屏推荐页面)</p>
+<p>​		然后在2012年部署在自家的 Instagram (一个照片分享平台)</p>
+<p>​		2013年5月，Facebook宣布 正式开源</p>
+<h5 id="近十年“陈酿”-React正在被腾讯、阿里等一线大厂广泛使用"><a href="#近十年“陈酿”-React正在被腾讯、阿里等一线大厂广泛使用" class="headerlink" title="近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用"></a>近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用</h5><h1 id="为什么要学？"><a href="#为什么要学？" class="headerlink" title="为什么要学？"></a>为什么要学？</h1><p>之前操作DOM的痛点：</p>
+<ol>
+<li><p>原生JavaScript操作DOM繁琐效率低 <code>DOM-API操作UI</code></p>
+<ol>
+<li><p>繁琐：</p>
+<ol>
+<li><code> document.getElementById</code> 一个网页源代码满屏的document</li>
+</ol>
+</li>
+<li><p>效率低</p>
+<ol>
+<li><p>页面上有个id为app的盒子，使用js改变背景颜色就是<code>document.getElementById(&quot;app&quot;).style.background=&quot;blue&quot;</code></p>
+</li>
+<li><p>需要三秒钟后再改那就是写一个定时器，延迟三秒钟，三秒钟后再怎么怎么样改样式……</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>使用JavaScript直接操作DOM，浏览器会进行大量 <code>重绘重排</code></p>
+</li>
+<li><p>原生JavaScript没有 <code>组件化</code> 的编码方案，代码复用率低</p>
+<ol>
+<li>组件化：<ol>
+<li>一拆到低，js、html结构和css样式都拆</li>
+<li>甚至构成这个局部功能的图片、字体、音视频都要拆</li>
+</ol>
+</li>
+<li>JavaScript模块化：<ol>
+<li>将庞大的js，按照功能拆分成小的js</li>
+<li>模块化只是拆了js，html结构和c s s样式没有拆</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>React的特点：</p>
+<ol>
+<li><p>采用 <code>组件化</code> 模式、<code>声明式编码</code>，提高开发效率及组件复用率</p>
+<ol>
+<li><p>声明式编码：</p>
+<p>之前都叫命令式编码</p>
+<p>比如页面上有个红色的盒子，要变成蓝色的</p>
+<p>之前：</p>
+<p>​		通过js或者jquery拿到红色的盒子，再用 .style 去改变颜色，少一步都不行</p>
+<h5 id="这叫命令式编码"><a href="#这叫命令式编码" class="headerlink" title="这叫命令式编码"></a>这叫命令式编码</h5><p>现在：</p>
+<p>​		通过特殊的语法，只是表达一下是蓝色的，react就把这个红色的盒子变成蓝色</p>
+<h5 id="这叫声明式编码"><a href="#这叫声明式编码" class="headerlink" title="这叫声明式编码"></a>这叫声明式编码</h5><h5 id="虽爽，但是需要学习"><a href="#虽爽，但是需要学习" class="headerlink" title="虽爽，但是需要学习"></a>虽爽，但是需要学习</h5></li>
+<li><p>在React Native中可以使用React语法进行移动端开发</p>
+<ol>
+<li>React Native专门让前端人员用js编写出 Android 和 iOS 应用</li>
+</ol>
+</li>
+<li><p>使用 <code>虚拟DOM</code> + 优秀的 <code>Diffing算法</code> ，尽量减少与真实DOM的交互</p>
+<ol>
+<li>虚拟DOM：<ol>
+<li>不会存在于页面上，存在于电脑的内存中，给React用的</li>
+</ol>
+</li>
+<li>Diffing算法</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="几张图解释"><a href="#几张图解释" class="headerlink" title="几张图解释"></a>几张图解释</h1><p>用原生js实现显示数据</p>
+<p><img src="/react/%E5%88%9D%E8%AF%86react/js.png" alt="截屏2022-09-22 19.42.51"></p>
+<p>如果数组不会更新，静态的页面，写死就可以，如果多了一个人，又要拿一堆数据便利，然后又来了一次innerHTML。但是原来页面中的鹿晗-18，李现-19就不会被复用，被新的innerHTML所覆盖。如下图所示</p>
+<p><img src="/react/%E5%88%9D%E8%AF%86react/js1.png" alt="截屏2022-09-22 19.46.49"></p>
+<p>纯js实现：如果原来有100个人，新增了一个人，那么代价就是原来的100个人没一个用得上的，用101个人去重绘了一遍网页</p>
+<p>react如何做的</p>
+<p><img src="/react/%E5%88%9D%E8%AF%86react/react1.png" alt="截屏2022-09-22 19.49.17"></p>
+<p>React是这么做的</p>
+<p>​	数据还是那两个人，React并没有直接动真实DOM，而是创建成了虚拟DOM，然后将虚拟DOM映射成真实DOM</p>
+<p>​	优势不是在第一次体现出来的，而是在后期数据更新</p>
+<p>​	这时候数据变化，多了一个人，react还是把三条数据都生成虚拟DOM，React并没有把刚才的虚拟DOM丢弃，而是存起来，然后进行虚拟DOM的比较，当之前两个 <code>虚拟DOM</code> 比较后没有变化，直接就用起来，其实创建的虚拟DOM也就只是新增的那个1</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag"># react</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/react%E5%9F%BA%E7%A1%80/" rel="prev" title="react基础">
+                  <i class="fa fa-chevron-left"></i> react基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
