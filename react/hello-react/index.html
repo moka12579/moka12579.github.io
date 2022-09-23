@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="React入门React官网 英文官网 react 中文官网 react  React的基本使用 推荐网站 codepen codepen 是一个在线的代码编辑器的网站，可以在线测试使用React  效果 相关js库本文依据React 16.8.4所写当年在学习jQuery就是在html里引入jQuery.js 16.8.4版本下载：​			babel.min.js 点击下载 ​			react-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hello-react">
+<meta property="og:url" content="http://example.com/react/hello-react/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="React入门React官网 英文官网 react 中文官网 react  React的基本使用 推荐网站 codepen codepen 是一个在线的代码编辑器的网站，可以在线测试使用React  效果 相关js库本文依据React 16.8.4所写当年在学习jQuery就是在html里引入jQuery.js 16.8.4版本下载：​			babel.min.js 点击下载 ​			react-">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/react/hello-react/react%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="http://example.com/react/hello-react/react%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="http://example.com/react/hello-react/warn.png">
+<meta property="article:published_time" content="2022-09-23T09:09:11.000Z">
+<meta property="article:modified_time" content="2022-09-23T03:48:52.540Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/react/hello-react/react%E6%95%88%E6%9E%9C.png">
+
+
+<link rel="canonical" href="http://example.com/react/hello-react/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/react/hello-react/","path":"react/hello-react/","title":"hello-react"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>hello-react | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">React入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#React%E5%AE%98%E7%BD%91"><span class="nav-number">1.1.</span> <span class="nav-text">React官网</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">React的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">2.1.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3js%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text">相关js库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E4%BE%9D%E6%8D%AEReact-16-8-4%E6%89%80%E5%86%99"><span class="nav-number">2.2.1.</span> <span class="nav-text">本文依据React 16.8.4所写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-8-4%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">16.8.4版本下载：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-2-0%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">18.2.0版本下载：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#babel"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">babel:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react-development-js"><span class="nav-number">2.2.1.2.2.</span> <span class="nav-text">react.development.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react-dom-development-js"><span class="nav-number">2.2.1.2.3.</span> <span class="nav-text">react-dom.development.js</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hello-React"><span class="nav-number">3.</span> <span class="nav-text">hello-React</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/react/hello-react/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="hello-react | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hello-react
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-09-23 09:09:11 / 修改时间：03:48:52" itemprop="dateCreated datePublished" datetime="2022-09-23T09:09:11+00:00">2022-09-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/react%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">react基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="React入门"><a href="#React入门" class="headerlink" title="React入门"></a>React入门</h1><h2 id="React官网"><a href="#React官网" class="headerlink" title="React官网"></a>React官网</h2><ul>
+<li>英文官网 <a href="https://reactjs.org/" title="" target="">react</a></li>
+<li>中文官网 <a href="https://react.docschina.org/" title="" target="">react</a></li>
+</ul>
+<h1 id="React的基本使用"><a href="#React的基本使用" class="headerlink" title="React的基本使用"></a>React的基本使用</h1><ul>
+<li>推荐网站 <a href="https://codepen.io/pen?&editors=0010&layout=left" title="" target="">codepen</a></li>
+<li><code>codepen</code> 是一个在线的代码编辑器的网站，可以在线测试使用React</li>
+</ul>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/react/hello-react/react%E6%95%88%E6%9E%9C.png" alt="截屏2022-09-23 09.16.13"></p>
+<h2 id="相关js库"><a href="#相关js库" class="headerlink" title="相关js库"></a>相关js库</h2><h3 id="本文依据React-16-8-4所写"><a href="#本文依据React-16-8-4所写" class="headerlink" title="本文依据React 16.8.4所写"></a>本文依据React 16.8.4所写</h3><p>当年在学习jQuery就是在html里引入jQuery.js</p>
+<h4 id="16-8-4版本下载："><a href="#16-8-4版本下载：" class="headerlink" title="16.8.4版本下载："></a>16.8.4版本下载：</h4><p>​			babel.min.js <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/babel.min.js" title="" target="">点击下载</a></p>
+<p>​			react-dom.development.js <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/react-dom.development.js" title="" target="">点击下载</a></p>
+<p>​			react.development.js <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/react.development.js" title="" target="">点击下载</a></p>
+<h4 id="18-2-0版本下载："><a href="#18-2-0版本下载：" class="headerlink" title="18.2.0版本下载："></a>18.2.0版本下载：</h4><p>​		babel.min.js <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/babel.min.js" title="" target="">点击下载</a></p>
+<p>​		react-dom.development.js <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/react-dom.development.js" title="" target="">点击下载</a></p>
+<p>​		react.development.js <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/react.development.js" title="" target="">点击下载</a></p>
+<h5 id="babel"><a href="#babel" class="headerlink" title="babel:"></a>babel:</h5><p>​	es6新语法的时候有些浏览器不认识，就需要babel将es6转es5</p>
+<p>​	js模块化的时候引入的单词 <code>import</code> 浏览器不认识也是需要babel将es6转es5</p>
+<p>​	babel第二种用法：</p>
+<p>​		jsx转换为js</p>
+<p>​		jsx不是新的语言，只是在js的基础上提出新的要求和语法，不是很多，js基础不错就能很轻松的掌握</p>
+<p>​		浏览器不认识jsx，就需要babel转换jsx为js</p>
+<h5 id="react-development-js"><a href="#react-development-js" class="headerlink" title="react.development.js"></a>react.development.js</h5><p>​	React的核心库</p>
+<h5 id="react-dom-development-js"><a href="#react-dom-development-js" class="headerlink" title="react-dom.development.js"></a>react-dom.development.js</h5><p>​	React的扩展库，扩展React的操作DOM</p>
+<h1 id="hello-React"><a href="#hello-React" class="headerlink" title="hello-React"></a>hello-React</h1><ol>
+<li><p>引入React的js文件</p>
+</li>
+<li><p>新建一个hello_React.html</p>
+</li>
+<li><p>开始编码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello_react<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 准备&quot;容器&quot; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>	</span><br><span class="line">  <span class="comment">&lt;!-- 引入js --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入react核心库 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/react.development.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> <span class="comment">&lt;!--全局多了一个对象 React --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入react-dom，用于支持react操作DOM --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/react-dom.development.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="comment">&lt;!--全局多了一个对象 ReactDOM --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入babel，用于将jsx转为js --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/babel.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/babel&quot;</span>&gt;</span><span class="language-javascript"> <span class="comment">// 此处一定要写babel，不写就是js</span></span></span><br><span class="line"><span class="language-javascript">  	<span class="comment">//1. 创建虚拟DOM</span></span></span><br><span class="line"><span class="language-javascript">  	<span class="keyword">const</span> <span class="variable constant_">VDOM</span> = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello React<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span> <span class="comment">// 此处一定不要写引号，因为不是字符串</span></span></span><br><span class="line"><span class="language-javascript">  	<span class="comment">//2. 渲染虚拟DOM到页面</span></span></span><br><span class="line"><span class="language-javascript">  	<span class="comment">// ReactDOM.render(虚拟DOM,容器)</span></span></span><br><span class="line"><span class="language-javascript">  	<span class="comment">// React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去</span></span></span><br><span class="line"><span class="language-javascript">  	<span class="title class_">ReactDom</span>.<span class="title function_">render</span>(<span class="variable constant_">VDOM</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;test&quot;</span>))</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行效果</p>
+<ol>
+<li><p><img src="/react/hello-react/react%E6%95%88%E6%9E%9C.png" alt="截屏2022-09-23 09.16.13"></p>
+</li>
+<li><p>控制台有一些警告</p>
+<p><img src="/react/hello-react/warn.png" alt="截屏2022-09-23 11.07.57"></p>
+<p>浏览器现翻译jsx，当虚拟DOM过多时，浏览器会白屏一段时间</p>
+<p>现在学习基本语法，这个警告可以忽略，毕竟不是按照人家的标准写的</p>
+<p>第一个提示是没有按照开发者工具</p>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/react/" rel="tag"># react</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/react/%E5%88%9D%E8%AF%86react/" rel="prev" title="初识React">
+                  <i class="fa fa-chevron-left"></i> 初识React
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
