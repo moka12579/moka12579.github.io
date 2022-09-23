@@ -30,8 +30,6 @@ categories:
 
 ​	模块化
 
-
-
 # 认识React
 
 ​	React是将数据渲染为HTML视图的开源JavaScript库
@@ -44,7 +42,7 @@ categories:
 
 ​		3. 操作dom，将数据呈现到页面上
 
-### 	开发人员与时间点
+## 开发人员与时间点
 
 ​		由Facebook的软件工程师 Jordan Walke 开发，并且并且开源
 
@@ -54,31 +52,28 @@ categories:
 
 ​		2013年5月，Facebook宣布 正式开源
 
-##### 		近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用
+### 		近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用
 
 
 
-# 为什么要学？
+# 为什么要学
 
-之前操作DOM的痛点：
+## 之前操作DOM的痛点：
 
 1. 原生JavaScript操作DOM繁琐效率低 `DOM-API操作UI`
 
    1. 繁琐：
 
-      1. ` document.getElementById` 一个网页源代码满屏的document
+      1. ` 	document.getElementById` 一个网页源代码满屏的document
 
-   2. 效率低
+      2. 效率低
 
-      1. 页面上有个id为app的盒子，使用js改变背景颜色就是`document.getElementById("app").style.background="blue"`
+         1. 页面上有个id为app的盒子，使用js改变背景颜色就是`document.getElementById("app").style.background="blue"`
 
-      2. 需要三秒钟后再改那就是写一个定时器，延迟三秒钟，三秒钟后再怎么怎么样改样式……
+         2. 需要三秒钟后再改那就是写一个定时器，延迟三秒钟，三秒钟后再怎么怎么样改样式……
+   2. 使用JavaScript直接操作DOM，浏览器会进行大量 `重绘重排`
 
-         
-
-2. 使用JavaScript直接操作DOM，浏览器会进行大量 `重绘重排`
-
-3. 原生JavaScript没有 `组件化` 的编码方案，代码复用率低
+2. 原生JavaScript没有 `组件化` 的编码方案，代码复用率低
 
    1. 组件化：
       1. 一拆到低，js、html结构和css样式都拆
@@ -87,7 +82,7 @@ categories:
       1. 将庞大的js，按照功能拆分成小的js
       2. 模块化只是拆了js，html结构和c s s样式没有拆
 
-React的特点：
+## React的特点：
 
 1. 采用 `组件化` 模式、`声明式编码`，提高开发效率及组件复用率
 
@@ -101,15 +96,15 @@ React的特点：
 
       ​		通过js或者jquery拿到红色的盒子，再用 .style 去改变颜色，少一步都不行
 
-      ##### 		这叫命令式编码
+      `这叫命令式编码`
 
       现在：
 
       ​		通过特殊的语法，只是表达一下是蓝色的，react就把这个红色的盒子变成蓝色
 
-      ##### 	    这叫声明式编码
+      `这叫声明式编码`
 
-      ##### 		虽爽，但是需要学习
+      `虽爽，但是需要学习`
 
    2. 在React Native中可以使用React语法进行移动端开发
 
@@ -119,7 +114,10 @@ React的特点：
 
       1. 虚拟DOM：
          1. 不会存在于页面上，存在于电脑的内存中，给React用的
+      
       2. Diffing算法
+      
+         
 
 # 几张图解释
 

@@ -2318,6 +2318,11 @@
     "json5" "^0.5.0"
     "object-assign" "^4.0.1"
 
+"lodash.deburr@^4.0.0":
+  "integrity" "sha512-m/M1U1f3ddMCs6Hq2tAsYThTBDaAKFDX3dwDo97GEYzamXi9SqUpjWi/Rrj/gf3X2n8ktwgZrlP1z6E3v/IExQ=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/lodash.deburr/-/lodash.deburr-4.1.0.tgz"
+  "version" "4.1.0"
+
 "lodash.get@^4.0.0":
   "integrity" "sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/lodash.get/-/lodash.get-4.4.2.tgz"
@@ -2327,6 +2332,19 @@
   "integrity" "sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/lodash.isequal/-/lodash.isequal-4.5.0.tgz"
   "version" "4.5.0"
+
+"lodash.kebabcase@4.0.1":
+  "integrity" "sha512-klTwDV5K5uMm9xlfXAbVc7Y+i7IB6x/mKxTrL6b03xUiOX76HjgjDc0d6gL6uOR70nsUUpwN3dVeJ8gtvKWG3w=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/lodash.kebabcase/-/lodash.kebabcase-4.0.1.tgz"
+  "version" "4.0.1"
+  dependencies:
+    "lodash.deburr" "^4.0.0"
+    "lodash.words" "^4.0.0"
+
+"lodash.words@^4.0.0":
+  "integrity" "sha512-mXxqd8Yx9BGPij3lZKFSdOsjOTbL4krbCCp9slEozaN4EMppA2dFmK/f8HeohodprY6W0vOdiQ5WFgPaTI75xQ=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/lodash.words/-/lodash.words-4.2.0.tgz"
+  "version" "4.2.0"
 
 "lodash@^4.12.0", "lodash@^4.17.19", "lodash@^4.17.4":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
@@ -2369,6 +2387,14 @@
   "integrity" "sha512-7N/q3lyZ+LVCp7PzuxrJr4KMbBE2hW7BT7YNia330OFxIf4d3r5zVpicP2650l7CPN6RM9zOJRl3NGpqSiw3Eg=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/map-obj/-/map-obj-1.0.1.tgz"
   "version" "1.0.1"
+
+"markdown-it-named-headings@^1.1.0":
+  "integrity" "sha512-+aUoMYdhjiqRITbMqK179NzmF9uOyfcaockOjrscA4BDuRgY5pHftaVhRwvKUCt0kgJjPFC+g+PgmfBY2ds2uA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/markdown-it-named-headings/-/markdown-it-named-headings-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "lodash.kebabcase" "4.0.1"
+    "unidecode" "^0.1.8"
 
 "markdown-it@^13.0.1":
   "integrity" "sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q=="
@@ -3553,6 +3579,11 @@
   "integrity" "sha512-5WsVTFcH1ut/kkhAaHf4PVgI8c7++GiVcpCGxPouI6ZVjsqPnSDf8h/8HtVqc0t4fzRXwnMK70EcZeAs3PIddg=="
   "resolved" "https://repo.huaweicloud.com/repository/npm/underscore/-/underscore-1.8.3.tgz"
   "version" "1.8.3"
+
+"unidecode@^0.1.8":
+  "integrity" "sha512-SdoZNxCWpN2tXTCrGkPF/0rL2HEq+i2gwRG1ReBvx8/0yTzC3enHfugOf8A9JBShVwwrRIkLX0YcDUGbzjbVCA=="
+  "resolved" "https://repo.huaweicloud.com/repository/npm/unidecode/-/unidecode-0.1.8.tgz"
+  "version" "0.1.8"
 
 "universalify@^0.2.0":
   "integrity" "sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg=="
