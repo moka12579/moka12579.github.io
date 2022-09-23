@@ -9,3 +9,5 @@ categories:
 # React基础
 
 - {% post_link react/初识react %}
+
+- {% post_link react/hello-react %}

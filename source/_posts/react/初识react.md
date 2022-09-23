@@ -3,7 +3,7 @@ title: 初识React
 date: 2022-09-22 11:55:48
 tags: react
 categories: 	
- - resct基础
+ - react基础
 ---
 
 # 初识React
