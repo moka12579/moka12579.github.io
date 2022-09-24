@@ -101,6 +101,7 @@ categories:
      	//2. 渲染虚拟DOM到页面
      	// ReactDOM.render(虚拟DOM,容器)
      	// React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+     	// 注意这句话不是追加的动作哦，这是替换的动作
      	ReactDom.render(VDOM,document.getElementById("test"))
      </script>
    </body>
@@ -115,8 +116,10 @@ categories:
 
       ![截屏2022-09-23 11.07.57](warn.png)
 
+      第一个输出是因为没有在浏览器安装开发者工具
+
       浏览器现翻译jsx，当虚拟DOM过多时，浏览器会白屏一段时间
 
       现在学习基本语法，这个警告可以忽略，毕竟不是按照人家的标准写的
-
-      第一个提示是没有按照开发者工具
+      
+      
