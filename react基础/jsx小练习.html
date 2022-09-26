@@ -1,0 +1,81 @@
+<hr>
+<p>title: jsx小练习<br>date: 2022-09-26 18:51:10<br>tags: react基础<br>categories:	</p>
+<ul>
+<li>react基础</li>
+</ul>
+<hr>
+<h1 id="jsx小练习"><a href="#jsx小练习" class="headerlink" title="jsx小练习"></a>jsx小练习</h1><p>需求如下，做这样的一个页面</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/jsx%E5%B0%8F%E7%BB%83%E4%B9%A0/jsx.png" alt="截屏2022-09-26 18.52.27"></p>
+<h2 id="小试一下"><a href="#小试一下" class="headerlink" title="小试一下"></a>小试一下</h2><pre><code class="jsx">//上面省略HTML部分
+//创建虚拟DON
+const VDOM = (
+    &lt;div&gt;
+      &lt;h1&gt;前段js框架列表&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Angular&lt;/li&gt;
+      &lt;li&gt;React&lt;/li&gt;
+      &lt;li&gt;Vue&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+)
+
+//渲染虚拟DOM到页面
+ReactDOM.render(VDOM,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>效果</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/jsx%E5%B0%8F%E7%BB%83%E4%B9%A0/jsx.png" alt="截屏2022-09-26 18.52.27"></p>
+<p>真实中肯定不是写死的，下面模拟一些数据</p>
+<pre><code class="jsx">//上面省略HTML部分
+//模拟一些数据
+const data=[&quot;Angular&quot;,&quot;React&quot;,&quot;Vue&quot;]
+//创建虚拟DON
+const VDOM = (
+    &lt;div&gt;
+      &lt;h1&gt;前段js框架列表&lt;/h1&gt;
+    &lt;ul&gt;
+      // 这样会遍历但是丢失ul和li的结构
+      // {data}
+        {
+        
+        // 只能写js的表达式
+        // if判断、for循环都不能写，因为是语句
+        data.map((item,index) =&gt; {
+          return &lt;li key={index}&gt;{item}&lt;/li&gt;
+        })
+      }
+    &lt;/ul&gt;
+  &lt;/div&gt;
+)
+
+//渲染虚拟DOM到页面
+ReactDOM.render(VDOM,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>虽然有效果，但是控制台报错如下</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/jsx%E5%B0%8F%E7%BB%83%E4%B9%A0/error.png" alt="截屏2022-09-26 19.15.31"></p>
+<p>大概意思是 <code>每一个节点在这个列表中都必须有一个唯一的key属性</code></p>
+<p>非常优秀的 <code>Diffing算法</code> 就依赖这个key，所以每一个人都要有一个标识，key就是标签的唯一标识</p>
+<p>如果key给的值一样，则报如下错误</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/jsx%E5%B0%8F%E7%BB%83%E4%B9%A0/error2.png" alt="截屏2022-09-26 19.21.00"></p>
+<p>大概意思： <code>说有两个孩子的key一样，而key应该是唯一的</code></p>
+<p>所以如下所示</p>
+<pre><code class="jsx">data.map((item,index) =&gt; {
+    return &lt;li key={index}&gt;{item}&lt;/li&gt;
+})
+</code></pre>
+<p>但是这样写会有问题，现在就怎么简单怎么来</p>
+<h3 id="注意区分-js语句（代码）-与-js表达式-的区别"><a href="#注意区分-js语句（代码）-与-js表达式-的区别" class="headerlink" title="注意区分 js语句（代码） 与 js表达式 的区别"></a>注意区分 <code>js语句（代码）</code> 与 <code>js表达式</code> 的区别</h3><p>拿个变量在左侧接，能接到的就是表达式</p>
+<pre><code>      1. 表达式：一个表达式会产生一个值，可以存放在任何一个需要值的地方。下面这些都是表达式：
+     		1. a （变量名）
+     		2. a+b
+     		3. demo(1) // demo函数没写返回值也会有默认的返回值为undefind
+     		4. arr.map() 
+     		5. function test() {} // 定义函数也有一个返回值
+</code></pre>
+<ol start="2">
+<li>语句（代码） 下面这些都是<ol>
+<li>if(){}</li>
+<li>for(){}</li>
+<li>switch(){case:xxx}</li>
+</ol>
+</li>
+</ol>

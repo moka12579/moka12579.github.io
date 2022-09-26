@@ -1,0 +1,45 @@
+<hr>
+<p>title: 虚拟DOM<br>date: 2022-09-24 15:42:08<br>tags: react<br>categories: 	</p>
+<ul>
+<li>react基础</li>
+</ul>
+<hr>
+<h1 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h1><h2 id="两种创建方式"><a href="#两种创建方式" class="headerlink" title="两种创建方式"></a>两种创建方式</h2><p>别的都一样，但第二种方式无需引入babel</p>
+<h3 id="使用JSX"><a href="#使用JSX" class="headerlink" title="使用JSX"></a>使用JSX</h3><pre><code class="jsx">        //1. 创建虚拟DOM
+      const VDOM = &lt;h1 id=&quot;title&quot;&gt;Hello React&lt;/h1&gt; // 此处一定不要写引号，因为不是字符串
+      //2. 渲染虚拟DOM到页面
+      // ReactDOM.render(虚拟DOM,容器)
+      // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+      // 注意这句话不是追加的动作哦，这是替换的动作
+      ReactDom.render(VDOM,document.getElementById(&quot;test&quot;))
+</code></pre>
+<h3 id="使用js"><a href="#使用js" class="headerlink" title="使用js"></a>使用js</h3><pre><code class="js">        //1. 创建虚拟DOM
+        //document.createElement是创建真实DOM
+        //React.createElement是创建虚拟DOM
+
+      const VDOM = React.createElement(&#39;h1&#39;,{id:&#39;title&#39;},&quot;Hello,React&quot;)
+    
+      //2. 渲染虚拟DOM到页面
+      // ReactDOM.render(虚拟DOM,容器)
+      // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+      // 注意这句话不是追加的动作哦，这是替换的动作
+      ReactDom.render(VDOM,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>有个需求，h1标签里有个span标签，span标签里有 <code>Hello,React</code></p>
+<p>使用JSX</p>
+<pre><code class="jsx">const VDOM = &lt;h1 id=&quot;title&quot;&gt;&lt;span&gt;Hello,React&lt;/span&gt;&lt;/h1&gt; 
+</code></pre>
+<p>使用js</p>
+<pre><code class="js">const VDOM = React.createElement(&#39;h1&#39;,{id:&#39;title&#39;},React.createElement(&#39;span&#39;,{},&quot;Hello,React&quot;))
+</code></pre>
+<p>​		如果有四层HTML嵌套，原生js写就很痛苦，<code>jsx</code> 就会很方便，写虚拟DOM就跟当年写HTML一样，<code>jsx</code> 就为了解决原生js创建虚拟DOM繁琐的问题，就是为了简单方便的创建虚拟DOM，写起来更加流畅</p>
+<p>jsx也支持这样写:</p>
+<pre><code class="jsx">const VDOM = (
+  &lt;h1 id=&quot;title&quot;&gt;
+    &lt;span&gt;Hello,React&lt;/span&gt;
+  &lt;/h1&gt; 
+)
+//经过babel的翻译就是
+const VDOM = React.createElement(&#39;h1&#39;,{id:&#39;title&#39;},React.createElement(&#39;span&#39;,{},&quot;Hello,React&quot;))
+</code></pre>
+<p><code>jsx</code> 创建虚拟DOM的写法其实就是原生js创建虚拟DOM的语法糖</p>

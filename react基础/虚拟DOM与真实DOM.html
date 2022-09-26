@@ -1,0 +1,52 @@
+<hr>
+<p>title: 虚拟DOM与真实DOM<br>date: 2022-09-24 15:58:23<br>tags: react<br>categories: 	</p>
+<ul>
+<li>react基础</li>
+</ul>
+<hr>
+<h1 id="虚拟DOM与真实DOM"><a href="#虚拟DOM与真实DOM" class="headerlink" title="虚拟DOM与真实DOM"></a>虚拟DOM与真实DOM</h1><h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>输出一下虚拟DOM</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;hello_react&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- 准备&quot;容器&quot; --&gt;
+&lt;div id=&quot;test&quot;&gt;&lt;/div&gt;
+  &lt;div id=&#39;demo&#39;&gt;&lt;/div&gt;
+  &lt;!-- 引入js --&gt;
+  &lt;!-- 引入react核心库 --&gt;
+  &lt;script src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt; &lt;!--全局多了一个对象 React --&gt;
+  &lt;!-- 引入react-dom，用于支持react操作DOM --&gt;
+    &lt;script src=&quot;../js/react-dom.development.js&quot;&gt;&lt;/script&gt;&lt;!--全局多了一个对象 ReactDOM --&gt;
+  &lt;!-- 引入babel，用于将jsx转为js --&gt;
+    &lt;script src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot;&gt; // 此处一定要写babel，不写就是js
+      //1. 创建虚拟DOM
+      const VDOM = &lt;h1&gt;Hello React&lt;/h1&gt; // 此处一定不要写引号，因为不是字符串
+      //2. 渲染虚拟DOM到页面
+      // ReactDOM.render(虚拟DOM,容器)
+      // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+      // 注意这句话不是追加的动作哦，这是替换的动作
+      ReactDom.render(VDOM,document.getElementById(&quot;test&quot;))
+  
+      console.log(&quot;虚拟DOM&quot;,VDOM) //虚拟DOM Object
+      const TDOM = document.getElementById(&quot;demo&quot;)
+      console.log(&quot;真实DOM&quot;,TDOM) //真实DOM &lt;div id=&quot;demo&quot;&gt;&lt;/div&gt;
+      debugger; 
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="/react%E5%9F%BA%E7%A1%80/%E8%99%9A%E6%8B%9FDOM%E4%B8%8E%E7%9C%9F%E5%AE%9EDOM/VDOM.png" alt="截屏2022-09-24 16.02.45"></p>
+<p>输出一个Object代表虚拟DOM并不是什么高大上的东西，就是一个普通的Object的对象</p>
+<pre><code class="js">console.log(typeof VDOM)  //object
+console.log(VDOM instanceof Object)  //true
+</code></pre>
+<p>关于虚拟DOM：</p>
+<ol>
+<li>本质是Object类型的对象（一般对象）</li>
+<li>虚拟DOM比较 “轻” ，真实DOM比较 “重” ，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性</li>
+<li>虚拟DOM最终会被React转化为真实DOM，呈现在页面上</li>
+</ol>

@@ -1,0 +1,103 @@
+<hr>
+<p>title: 初识React<br>date: 2022-09-22 11:55:48<br>tags: react<br>categories: 	</p>
+<ul>
+<li>react基础</li>
+</ul>
+<hr>
+<h1 id="初识React"><a href="#初识React" class="headerlink" title="初识React"></a>初识React</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>需要掌握{% link JavaScript <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript</a> %}</p>
+<h3 id="需要掌握的JavaScript基础知识"><a href="#需要掌握的JavaScript基础知识" class="headerlink" title="需要掌握的JavaScript基础知识"></a>需要掌握的JavaScript基础知识</h3><p>​	判断 {% link this <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this</a> %} 的指向</p>
+<p>​	{% link class <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class</a> %} (类)</p>
+<p>​	es6语法规范</p>
+<p>​	npm包管理器</p>
+<p>​	原型、{% link 原型链 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</a> %}</p>
+<p>​	{% post_link Array对象的方法 数组常用方法 %}</p>
+<p>​	模块化</p>
+<h1 id="认识React"><a href="#认识React" class="headerlink" title="认识React"></a>认识React</h1><p>​	React是将数据渲染为HTML视图的开源JavaScript库</p>
+<p>​	以往写html网页需要三步：</p>
+<p>​		1. 发送请求获取数据</p>
+<p>​		2. 处理数据（过滤，格式整理等）</p>
+<p>​		3. 操作dom，将数据呈现到页面上</p>
+<h2 id="开发人员与时间点"><a href="#开发人员与时间点" class="headerlink" title="开发人员与时间点"></a>开发人员与时间点</h2><p>​		由Facebook的软件工程师 Jordan Walke 开发，并且并且开源</p>
+<p>​		于2011年部署于 Facebook 的 newsfeed (就是一个页面，类似于微博首屏推荐页面)</p>
+<p>​		然后在2012年部署在自家的 Instagram (一个照片分享平台)</p>
+<p>​		2013年5月，Facebook宣布 正式开源</p>
+<h3 id="近十年“陈酿”-React正在被腾讯、阿里等一线大厂广泛使用"><a href="#近十年“陈酿”-React正在被腾讯、阿里等一线大厂广泛使用" class="headerlink" title="近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用"></a>近十年“陈酿” React正在被腾讯、阿里等一线大厂广泛使用</h3><h1 id="为什么要学"><a href="#为什么要学" class="headerlink" title="为什么要学"></a>为什么要学</h1><h2 id="之前操作DOM的痛点："><a href="#之前操作DOM的痛点：" class="headerlink" title="之前操作DOM的痛点："></a>之前操作DOM的痛点：</h2><ol>
+<li><p>原生JavaScript操作DOM繁琐效率低 <code>DOM-API操作UI</code></p>
+<ol>
+<li><p>繁琐：</p>
+<ol>
+<li><p><code> 	document.getElementById</code> 一个网页源代码满屏的document</p>
+</li>
+<li><p>效率低</p>
+<ol>
+<li><p>页面上有个id为app的盒子，使用js改变背景颜色就是<code>document.getElementById(&quot;app&quot;).style.background=&quot;blue&quot;</code></p>
+</li>
+<li><p>需要三秒钟后再改那就是写一个定时器，延迟三秒钟，三秒钟后再怎么怎么样改样式……</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>使用JavaScript直接操作DOM，浏览器会进行大量 <code>重绘重排</code></p>
+</li>
+</ol>
+</li>
+<li><p>原生JavaScript没有 <code>组件化</code> 的编码方案，代码复用率低</p>
+<ol>
+<li>组件化：<ol>
+<li>一拆到低，js、html结构和css样式都拆</li>
+<li>甚至构成这个局部功能的图片、字体、音视频都要拆</li>
+</ol>
+</li>
+<li>JavaScript模块化：<ol>
+<li>将庞大的js，按照功能拆分成小的js</li>
+<li>模块化只是拆了js，html结构和c s s样式没有拆</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="React的特点："><a href="#React的特点：" class="headerlink" title="React的特点："></a>React的特点：</h2><ol>
+<li><p>采用 <code>组件化</code> 模式、<code>声明式编码</code>，提高开发效率及组件复用率</p>
+<ol>
+<li><p>声明式编码：</p>
+<p>之前都叫命令式编码</p>
+<p>比如页面上有个红色的盒子，要变成蓝色的</p>
+<p>之前：</p>
+<p>​		通过js或者jquery拿到红色的盒子，再用 .style 去改变颜色，少一步都不行</p>
+<p><code>这叫命令式编码</code></p>
+<p>现在：</p>
+<p>​		通过特殊的语法，只是表达一下是蓝色的，react就把这个红色的盒子变成蓝色</p>
+<p><code>这叫声明式编码</code></p>
+<p><code>虽爽，但是需要学习</code></p>
+</li>
+<li><p>在React Native中可以使用React语法进行移动端开发</p>
+<ol>
+<li>React Native专门让前端人员用js编写出 Android 和 iOS 应用</li>
+</ol>
+</li>
+<li><p>使用 <code>虚拟DOM</code> + 优秀的 <code>Diffing算法</code> ，尽量减少与真实DOM的交互</p>
+<ol>
+<li><p>虚拟DOM：</p>
+<ol>
+<li>不会存在于页面上，存在于电脑的内存中，给React用的</li>
+</ol>
+</li>
+<li><p>Diffing算法</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="几张图解释"><a href="#几张图解释" class="headerlink" title="几张图解释"></a>几张图解释</h1><p>用原生js实现显示数据</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/%E5%88%9D%E8%AF%86react/js.png" alt="截屏2022-09-22 19.42.51"></p>
+<p>如果数组不会更新，静态的页面，写死就可以，如果多了一个人，又要拿一堆数据便利，然后又来了一次innerHTML。但是原来页面中的鹿晗-18，李现-19就不会被复用，被新的innerHTML所覆盖。如下图所示</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/%E5%88%9D%E8%AF%86react/js1.png" alt="截屏2022-09-22 19.46.49"></p>
+<p>纯js实现：如果原来有100个人，新增了一个人，那么代价就是原来的100个人没一个用得上的，用101个人去重绘了一遍网页</p>
+<p>react如何做的</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/%E5%88%9D%E8%AF%86react/react1.png" alt="截屏2022-09-22 19.49.17"></p>
+<p>React是这么做的</p>
+<p>​	数据还是那两个人，React并没有直接动真实DOM，而是创建成了虚拟DOM，然后将虚拟DOM映射成真实DOM</p>
+<p>​	优势不是在第一次体现出来的，而是在后期数据更新</p>
+<p>​	这时候数据变化，多了一个人，react还是把三条数据都生成虚拟DOM，React并没有把刚才的虚拟DOM丢弃，而是存起来，然后进行虚拟DOM的比较，当之前两个 <code>虚拟DOM</code> 比较后没有变化，直接就用起来，其实创建的虚拟DOM也就只是新增的那个1</p>

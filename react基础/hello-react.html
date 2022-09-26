@@ -1,0 +1,78 @@
+<hr>
+<p>title: hello-react<br>date: 2022-09-23 09:09:11<br>tags: react<br>categories: 	</p>
+<ul>
+<li>react基础</li>
+</ul>
+<hr>
+<h1 id="React入门"><a href="#React入门" class="headerlink" title="React入门"></a>React入门</h1><h2 id="React官网"><a href="#React官网" class="headerlink" title="React官网"></a>React官网</h2><ul>
+<li>英文官网 {% link react <a href="https://reactjs.org/">https://reactjs.org</a> %}</li>
+<li>中文官网 {% link react <a href="https://react.docschina.org/">https://react.docschina.org</a> %}</li>
+</ul>
+<h1 id="React的基本使用"><a href="#React的基本使用" class="headerlink" title="React的基本使用"></a>React的基本使用</h1><ul>
+<li>推荐网站 {% link codepen <a href="https://codepen.io/pen?&amp;editors=0010&amp;layout=left">https://codepen.io/pen?&amp;editors=0010&amp;layout=left</a> %}</li>
+<li><code>codepen</code> 是一个在线的代码编辑器的网站，可以在线测试使用React</li>
+</ul>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/react%E5%9F%BA%E7%A1%80/hello-react/react%E6%95%88%E6%9E%9C.png" alt="截屏2022-09-23 09.16.13"></p>
+<h2 id="相关js库"><a href="#相关js库" class="headerlink" title="相关js库"></a>相关js库</h2><h3 id="本文依据React-16-8-4所写"><a href="#本文依据React-16-8-4所写" class="headerlink" title="本文依据React 16.8.4所写"></a>本文依据React 16.8.4所写</h3><p>当年在学习jQuery就是在html里引入jQuery.js</p>
+<h4 id="16-8-4版本下载："><a href="#16-8-4版本下载：" class="headerlink" title="16.8.4版本下载："></a>16.8.4版本下载：</h4><p>​			babel.min.js {% link 点击下载 <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/babel.min.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/babel.min.js</a> %}</p>
+<p>​			react-dom.development.js {% link 点击下载 <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/react-dom.development.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/react-dom.development.js</a> %}</p>
+<p>​			react.development.js {% link 点击下载 <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/react.development.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/react.development.js</a> %}</p>
+<h4 id="18-2-0版本下载："><a href="#18-2-0版本下载：" class="headerlink" title="18.2.0版本下载："></a>18.2.0版本下载：</h4><p>​		babel.min.js {% link 点击下载 <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/babel.min.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/babel.min.js</a> %}</p>
+<p>​		react-dom.development.js {% link 点击下载 <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/react-dom.development.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/react-dom.development.js</a> %}</p>
+<p>​		react.development.js {% link 点击下载 <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/react.development.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/18.2.0/react.development.js</a> %}</p>
+<h5 id="babel"><a href="#babel" class="headerlink" title="babel:"></a>babel:</h5><p>​	es6新语法的时候有些浏览器不认识，就需要babel将es6转es5</p>
+<p>​	js模块化的时候引入的单词 <code>import</code> 浏览器不认识也是需要babel将es6转es5</p>
+<p>​	babel第二种用法：</p>
+<p>​		jsx转换为js</p>
+<p>​		jsx不是新的语言，只是在js的基础上提出新的要求和语法，不是很多，js基础不错就能很轻松的掌握</p>
+<p>​		浏览器不认识jsx，就需要babel转换jsx为js</p>
+<h5 id="react-development-js"><a href="#react-development-js" class="headerlink" title="react.development.js"></a>react.development.js</h5><p>​	React的核心库</p>
+<h5 id="react-dom-development-js"><a href="#react-dom-development-js" class="headerlink" title="react-dom.development.js"></a>react-dom.development.js</h5><p>​	React的扩展库，扩展React的操作DOM</p>
+<h1 id="hello-React"><a href="#hello-React" class="headerlink" title="hello-React"></a>hello-React</h1><ol>
+<li><p>引入React的js文件</p>
+</li>
+<li><p>新建一个hello_React.html</p>
+</li>
+<li><p>开始编码</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;hello_react&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- 准备&quot;容器&quot; --&gt;
+&lt;div id=&quot;test&quot;&gt;&lt;/div&gt;	
+  &lt;!-- 引入js --&gt;
+  &lt;!-- 引入react核心库 --&gt;
+  &lt;script src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt; &lt;!--全局多了一个对象 React --&gt;
+  &lt;!-- 引入react-dom，用于支持react操作DOM --&gt;
+    &lt;script src=&quot;../js/react-dom.development.js&quot;&gt;&lt;/script&gt;&lt;!--全局多了一个对象 ReactDOM --&gt;
+  &lt;!-- 引入babel，用于将jsx转为js --&gt;
+    &lt;script src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot;&gt; // 此处一定要写babel，不写就是js
+      //1. 创建虚拟DOM
+      const VDOM = &lt;h1&gt;Hello React&lt;/h1&gt; // 此处一定不要写引号，因为不是字符串
+      //2. 渲染虚拟DOM到页面
+      // ReactDOM.render(虚拟DOM,容器)
+      // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+      // 注意这句话不是追加的动作哦，这是替换的动作
+      ReactDom.render(VDOM,document.getElementById(&quot;test&quot;))
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li><p>运行效果</p>
+<ol>
+<li><p><img src="/react%E5%9F%BA%E7%A1%80/hello-react/react%E6%95%88%E6%9E%9C.png" alt="截屏2022-09-23 09.16.13"></p>
+</li>
+<li><p>控制台有一些警告</p>
+<p><img src="/react%E5%9F%BA%E7%A1%80/hello-react/warn.png" alt="截屏2022-09-23 11.07.57"></p>
+<p>第一个输出是因为没有在浏览器安装开发者工具</p>
+<p>浏览器现翻译jsx，当虚拟DOM过多时，浏览器会白屏一段时间</p>
+<p>现在学习基本语法，这个警告可以忽略，毕竟不是按照人家的标准写的</p>
+</li>
+</ol>
+</li>
+</ol>
