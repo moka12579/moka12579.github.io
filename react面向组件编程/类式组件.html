@@ -19,10 +19,11 @@ class MyComponent extends React.Component{
 ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&quot;test&quot;))
 </code></pre>
 <p>定义类式组件必须要求三个条件：</p>
-<pre><code>1. 继承React.Component类
-1. render方法必须写
-1. render方法必须有返回值
-</code></pre>
+<ol>
+<li>继承React.Component类</li>
+<li>render方法必须写</li>
+<li>render方法必须有返回值</li>
+</ol>
 <p>有两个问题：</p>
 <ol>
 <li><p>render是放在哪里的？– MyComponent的原型对象上，供实例使用。<br>直接在浏览器的控制台输 <code>MyComponent.prototype</code> 就能看到render<br><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/prototype.png"></p>
