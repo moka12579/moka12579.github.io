@@ -1,0 +1,24 @@
+<hr>
+<p>title: 函数式组件<br>date: 2022-09-27 16:50:44<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h1><p>用函数定义组件</p>
+<p>函数名就是组件名</p>
+<pre><code class="jsx">//创建函数式组件
+function MyComponent(){
+  console.log(this) // this为undefined
+  //babel在翻译完jsx后开启了严格模式，严格模式就是禁止this指向window
+  return &lt;h2&gt;我是用函数定义的组件（适用于【简单组件】的定义）&lt;/h2&gt;
+}
+//渲染组件到页面
+//此处不能直接写MyComponent，要写&lt;MyComponent/&gt;
+//标签首字母必须大写，函数首字母也得大写
+ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>react是怎么工作的：执行了ReactDOM.render(&lt;MyComponent)…..之后发生了什么：</p>
+<ol>
+<li>React解析组件标签，找到了MyComponent组件。</li>
+<li>发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，并呈现在页面上</li>
+</ol>

@@ -1,0 +1,39 @@
+<hr>
+<p>title: 类式组件<br>date: 2022-09-27 19:20:40<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="类式组件"><a href="#类式组件" class="headerlink" title="类式组件"></a>类式组件</h1><p>用类定义的组件</p>
+<p>类名就是组件名</p>
+<pre><code class="jsx">// 创建类式组件
+// React的要求定义类式组件就必须继承React.Component类
+// 现在不写构造器是可以的
+class MyComponent extends React.Component{
+  render() {
+    return &lt;h2&gt;我是用类定义的组件(适用于【复杂组件】的定义)&lt;/h2&gt;
+  }
+}
+//渲染组件到页面
+//此处render跟类里面的render没有任何关系，只是重名
+ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>定义类式组件必须要求三个条件：</p>
+<pre><code>1. 继承React.Component类
+1. render方法必须写
+1. render方法必须有返回值
+</code></pre>
+<p>有两个问题：</p>
+<ol>
+<li><p>render是放在哪里的？– MyComponent的原型对象上，供实例使用。<br>直接在浏览器的控制台输 <code>MyComponent.prototype</code> 就能看到render<br><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/prototype.png"></p>
+</li>
+<li><p>执行了ReactDOM.render(&lt;MyComponent)…..之后发生了什么：</p>
+<ol>
+<li>React解析组件标签，找到了MyComponent组件。</li>
+<li>发现组件是使用类定义的，随后 <code>new</code> 出来该类的实例，并通过该实例调用到原型上的render方法</li>
+<li>将render返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>
+</ol>
+</li>
+<li><p>render中的this是MyComponent的实例对象</p>
+</li>
+</ol>
