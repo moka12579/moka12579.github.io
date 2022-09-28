@@ -1,0 +1,195 @@
+<hr>
+<p>title: 组件实例三大核心属性之一state<br>date: 2022-09-28 08:57:31<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="组件实例三大核心属性之一state"><a href="#组件实例三大核心属性之一state" class="headerlink" title="组件实例三大核心属性之一state"></a>组件实例三大核心属性之一state</h1><p>复杂组件：有状态的组件</p>
+<p>简单组件：没有状态的组件</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>人，就有一个状态</p>
+<p>比如某次考试没考好，老师问你为什么，你就说今天的状态不太好</p>
+<p>人的状态就影响着人的行为</p>
+<p>组件的状态里面存着数据，状态就会驱动着页面展示</p>
+<p>在新版React中提出了一个hooks，函数组件也可以拥有组件实例的三大核心属性</p>
+<h2 id="有一个小需求"><a href="#有一个小需求" class="headerlink" title="有一个小需求"></a>有一个小需求</h2><p>页面上有一段话 <code>今天天气很炎热</code> 点击后切换成 <code>今天天气很凉爽</code> 再点击又变成很炎热</p>
+<p>先在页面上展示<code>今天天气很炎热</code></p>
+<pre><code class="jsx">//创建组件
+class Weather extends React.Component{
+  render(){
+    return &lt;h1&gt;今天天气很炎热&lt;/h1&gt;
+  }
+}
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>写一个构造器</p>
+<pre><code class="jsx">//创建组件
+class Weather extends React.Component{
+  constructor(props) {
+    super(props);
+    // 一个组件有多个值
+    // react的要求就是一个对象
+    this.state = {isHot:true}
+  }
+  render(){
+    return &lt;h1&gt;今天天气很炎热&lt;/h1&gt;
+  }
+}
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>render里就可以使用三元运算符判断</p>
+<pre><code class="jsx">//创建组件
+class Weather extends React.Component{
+  constructor(props) {
+    super(props);
+    // 一个组件有多个值
+    // react的要求就是一个对象
+    // 初始化状态
+    this.state = {isHot:true}
+  }
+  render(){
+    //读取状态
+    conet {isHot} = this.state
+    return &lt;h1&gt;今天天气很${isHot ? &quot;炎热&quot; : &quot;凉爽&quot;}&lt;/h1&gt;
+  }
+}
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>此时控制台的Component选项卡里就能显示出对应的数据</p>
+<p>![](<a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/%E6%88%AA%E5%B1%8F2022-09-28">https://react-1300475487.cos.ap-chengdu.myqcloud.com/截屏2022-09-28</a> 09.28.54.png)</p>
+<p>添加点击事件</p>
+<pre><code class="jsx">//在外面定义一个that
+let that
+//创建组件
+class Weather extends React.Component{
+  constructor(props) {
+    super(props);
+    // 一个组件有多个值
+    // react的要求就是一个对象
+    // 初始化状态
+    this.state = {isHot:true}
+  }
+  render(){
+    //读取状态
+    conet {isHot} = this.state
+    //此处不能写 onclick
+    //只能写 onClick
+    //React将原生js所有的事件全部重写，比如 onclick --&gt; onClick onblur --&gt; onBlur
+    //React不是原生，此处不能写&quot;demo()&quot;
+    //如果写成{demo()} 则在渲染页面后就会调用方法，不需要点击就会输出，demo函数返回了一个undefined
+    //应该写成{demo}
+    return &lt;h1 onClick={demo}}&gt;今天天气很${isHot ? &quot;炎热&quot; : &quot;凉爽&quot;}&lt;/h1&gt;
+  }
+}
+function demo(){
+  
+}
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>函数里修改isHot</p>
+<pre><code class="jsx">//创建组件
+class Weather extends React.Component{
+  constructor(props) {
+    super(props);
+    // 一个组件有多个值
+    // react的要求就是一个对象
+    // 初始化状态
+    this.state = {isHot:true}
+    //解决changeWeather中this指向问题
+    this.changeWeather = this.changeWeather.bind(this)
+  }
+  render(){
+    //读取状态
+    conet {isHot} = this.state
+    //此处不能写 onclick
+    //只能写 onClick
+    //React将原生js所有的事件全部重写，比如 onclick --&gt; onClick onblur --&gt; onBlur
+    //React不是原生，此处不能写&quot;demo()&quot;
+    //如果写成{demo()} 则在渲染页面后就会调用方法，不需要点击就会输出，demo函数返回了一个undefined
+    //应该写成{demo}
+    return &lt;h1 onClick={this.changeWeather}}&gt;今天天气很${isHot ? &quot;炎热&quot; : &quot;凉爽&quot;}&lt;/h1&gt;
+  }
+  //changeWeather放在 Weather的原型上
+  //通过Weather实例调用changeWeather时，changeWeather的this就是Weather实例
+  changeWeather(){
+    //由于changeWeather是做为onClick的回调，所以不是通过实例调用的，是直接调用的
+    //而且类中的方法默认开启了局部的严格模式，所以changeWeather中的this为undefined
+      console.log(this) //undefined
+    
+    //获取原来的isHot值
+    const isHot = this.state.isHot
+    
+    //状态不可直接更改
+    //要借助一个内置的API更改
+    //this.state.isHot = !isHot 这是错误的写法
+    
+    //一定要写对象
+    //状态必须通过setState进行更新，且更新是一种合并，不是更换
+    this.setState({isHot:!isHot})
+    
+    console.log(this.state.isHot) //布尔值已经完成切换，但是页面不会变化
+    //状态里的数据不可以直接更改，虽然可以更改但是React不认可
+    }
+}
+
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>分析 <code>this.changeWeather = this.changeWeather.bind(this)</code></p>
+<p>本质上是个赋值语句</p>
+<p>等号右侧：</p>
+<p>​	this是组件实例对象，自身没有changeWeather，会顺着原型找到了原型上的changeWeather的方法，然后调用了bind方法，传了一个this，执行完成后changeWeather方法就有了this</p>
+<p>等号左侧：</p>
+<p>​	给实例对象新建了一个changeWeather方法，并且改变了this指向</p>
+<p>此时 <code>this.changeWeather</code> 就会找到自身上的changeWeather方法</p>
+<p>类组件里render调用几次：1+n次</p>
+<p>​	第一次是初始化的那次</p>
+<p>​	n是状态更新的次数</p>
+<p>changeWeather调用几次：点几次就调用几次</p>
+<h2 id="state的简写方式"><a href="#state的简写方式" class="headerlink" title="state的简写方式"></a>state的简写方式</h2><p>精简如下代码</p>
+<pre><code class="jsx">//创建组件
+class Weather extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {isHot:true}
+    this.changeWeather = this.changeWeather.bind(this)
+  }
+  render(){
+    conet {isHot} = this.state
+    return &lt;h1 onClick={this.changeWeather}}&gt;今天天气很${isHot ? &quot;炎热&quot; : &quot;凉爽&quot;}&lt;/h1&gt;
+  }
+  changeWeather(){
+    const isHot = this.state.isHot
+    this.setState({isHot:!isHot})
+    }
+}
+
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>state的简写方式</p>
+<p>constructor和render的this指向没问题，changeWeather方法的this指向就有问题（因为开启了严格模式并且不是new出来的Weather实例调用的）</p>
+<p>除了constructor和render，剩下的方法都是作为事件的回调使用</p>
+<pre><code class="jsx">//创建组件
+class Weather extends React.Component{
+  //初始化状态
+  state = {isHot:true}
+  render(){
+    conet {isHot} = this.state
+    return &lt;h1 onClick={this.changeWeather}}&gt;今天天气很${isHot ? &quot;炎热&quot; : &quot;凉爽&quot;}&lt;/h1&gt;
+  }
+  //箭头函数没有自己的this，箭头函数里使用this时，会找外部的this作为自己的this
+  //自定义方法--要用赋值语句的形式加箭头函数
+  changeWeather = () =&gt; {
+    const isHot = this.state.isHot
+    this.setState({isHot:!isHot})
+    console.log(this)//Weather的实例对象
+    }
+}
+
+//渲染虚拟DOM
+ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>

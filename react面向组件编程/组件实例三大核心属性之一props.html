@@ -1,0 +1,41 @@
+<hr>
+<p>title: 组件实例三大核心属性之一props<br>date: 2022-09-28 19:16:55<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="组件实例三大核心属性之一props"><a href="#组件实例三大核心属性之一props" class="headerlink" title="组件实例三大核心属性之一props"></a>组件实例三大核心属性之一props</h1><h2 id="props的基本使用"><a href="#props的基本使用" class="headerlink" title="props的基本使用"></a>props的基本使用</h2><p>做这么一个案例</p>
+<p>![](<a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/%E6%88%AA%E5%B1%8F2022-09-28">https://react-1300475487.cos.ap-chengdu.myqcloud.com/截屏2022-09-28</a> 19.19.01.png)</p>
+<p>把人的信息展示到页面上，两个人的形式都是展示姓名，性别，年龄</p>
+<pre><code class="jsx">// 创建组件
+class Person extends React.Component {
+  render(){
+    // console.log(this) 输出Person的实例对象，实例对象里就有props，但是一个空对象
+    let {name,age,sex} = this.props
+    return (
+        &lt;ul&gt;
+        &lt;li&gt;姓名：{name}&lt;/li&gt;
+        &lt;li&gt;性别：{sex}&lt;/li&gt;
+        &lt;li&gt;年龄：{age}&lt;/li&gt;
+      &lt;/ul&gt;
+    )
+  }
+}
+//渲染组件
+ReactDOM.render(&lt;Person name=&quot;tom&quot; age=&quot;18&quot; sex=&quot;女&quot;/&gt;,document.getElementById(&quot;test&quot;))
+ReactDOM.render(&lt;Person name=&quot;jerry&quot; age=&quot;19&quot; sex=&quot;男&quot;/&gt;,document.getElementById(&quot;test1&quot;))
+ReactDOM.render(&lt;Person name=&quot;小王&quot; age=&quot;20&quot; sex=&quot;女&quot;/&gt;,document.getElementById(&quot;test2&quot;))
+// console.log(this) 输出Person的实例对象，实例对象里就有props，值是{name:&quot;tom&quot;,age:&quot;18&quot;,sex:&quot;女&quot;}
+</code></pre>
+<h2 id="props的高级使用"><a href="#props的高级使用" class="headerlink" title="props的高级使用"></a>props的高级使用</h2><p>如果人的信息特别多，渲染组件就会显得很长</p>
+<pre><code class="jsx">const p = {name:&quot;老刘&quot;,age:18,sex:&quot;女&quot;} //假设这是服务器返回的数据
+
+//渲染组件就需要这样写
+ReactDOM.render(&lt;Person name={p.name} age={p.age} sex={p.sex}/&gt;,document.getElementById(&quot;test2&quot;))
+
+//简写的方式
+//就是上面那个的语法糖
+//前提是服务器返回的数据和组件里结构赋值要一致
+ReactDOM.render(&lt;Person {...p}/&gt;,document.getElementById(&quot;test2&quot;))
+</code></pre>
+<p>bebel加react可以让展开运算符展开一个属性，但是不能随意使用，仅仅是用于标签属性的传递</p>
