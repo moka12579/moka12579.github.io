@@ -84,7 +84,7 @@ ReactDOM.render(<Weather/>,document.getElementById("test"))
 
 此时控制台的Component选项卡里就能显示出对应的数据
 
-![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/截屏2022-09-28 09.28.54.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/data.png)
 
 添加点击事件
 
