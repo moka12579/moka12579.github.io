@@ -5,7 +5,7 @@
 </ul>
 <hr>
 <h1 id="组件实例三大核心属性之一props"><a href="#组件实例三大核心属性之一props" class="headerlink" title="组件实例三大核心属性之一props"></a>组件实例三大核心属性之一props</h1><h2 id="props的基本使用"><a href="#props的基本使用" class="headerlink" title="props的基本使用"></a>props的基本使用</h2><p>做这么一个案例</p>
-<p>![](<a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/%E6%88%AA%E5%B1%8F2022-09-28">https://react-1300475487.cos.ap-chengdu.myqcloud.com/截屏2022-09-28</a> 19.19.01.png)</p>
+<p><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/anli.png"></p>
 <p>把人的信息展示到页面上，两个人的形式都是展示姓名，性别，年龄</p>
 <pre><code class="jsx">// 创建组件
 class Person extends React.Component {
@@ -27,7 +27,7 @@ ReactDOM.render(&lt;Person name=&quot;jerry&quot; age=&quot;19&quot; sex=&quot;�
 ReactDOM.render(&lt;Person name=&quot;小王&quot; age=&quot;20&quot; sex=&quot;女&quot;/&gt;,document.getElementById(&quot;test2&quot;))
 // console.log(this) 输出Person的实例对象，实例对象里就有props，值是{name:&quot;tom&quot;,age:&quot;18&quot;,sex:&quot;女&quot;}
 </code></pre>
-<h2 id="props的高级使用"><a href="#props的高级使用" class="headerlink" title="props的高级使用"></a>props的高级使用</h2><p>如果人的信息特别多，渲染组件就会显得很长</p>
+<h2 id="props的高级使用"><a href="#props的高级使用" class="headerlink" title="props的高级使用"></a>props的高级使用</h2><h3 id="批量传递props"><a href="#批量传递props" class="headerlink" title="批量传递props"></a>批量传递props</h3><p>如果人的信息特别多，渲染组件就会显得很长</p>
 <pre><code class="jsx">const p = {name:&quot;老刘&quot;,age:18,sex:&quot;女&quot;} //假设这是服务器返回的数据
 
 //渲染组件就需要这样写
@@ -39,3 +39,110 @@ ReactDOM.render(&lt;Person name={p.name} age={p.age} sex={p.sex}/&gt;,document.g
 ReactDOM.render(&lt;Person {...p}/&gt;,document.getElementById(&quot;test2&quot;))
 </code></pre>
 <p>bebel加react可以让展开运算符展开一个属性，但是不能随意使用，仅仅是用于标签属性的传递</p>
+<h3 id="对props进行限制"><a href="#对props进行限制" class="headerlink" title="对props进行限制"></a>对props进行限制</h3><p>需要对person组件传递的标签属性类型限制</p>
+<p>进行必要性的限制，对性别提供默认值</p>
+<pre><code class="jsx">// 创建组件
+class Person extends React.Component {
+  render(){
+    // console.log(this) 输出Person的实例对象，实例对象里就有props，但是一个空对象
+    let {name,age,sex} = this.props
+    return (
+        &lt;ul&gt;
+        &lt;li&gt;姓名：{name}&lt;/li&gt;
+        &lt;li&gt;性别：{sex}&lt;/li&gt;
+        &lt;li&gt;年龄：{age+1}&lt;/li&gt;
+      &lt;/ul&gt;
+    )
+  }
+}
+//只负责这样写，React帮你限制
+Person.propTypes = {
+  //name就被限制，只能写字符串类型
+  //在React的15版本之前PropTypes可以使用，但是16版本开始这样就弃用
+  //name:React.PropTypes.string
+  //16版本之后应该这样写
+  //引入prop-types，用于对组件标签属性进行限制
+  name: PropTypes.string.isRequried // 限制name必传，且为字符串
+  sex: PropStypes.string // 限制sex为字符串
+  age: PropStypes.number // 限制age为数值
+}
+//指定默认的标签属性值
+Person.defaultProps = {
+  sex:&quot;男&quot;, // 默认性别为男
+  age: 18 // 默认年龄为18
+}
+//渲染组件
+ReactDOM.render(&lt;Person name=&quot;tom&quot; age={18} sex=&quot;女&quot;/&gt;,document.getElementById(&quot;test&quot;))
+ReactDOM.render(&lt;Person name=&quot;jerry&quot; age={19} sex=&quot;男&quot;/&gt;,document.getElementById(&quot;test1&quot;))
+//此时把name改为数字，控制台就会报错，会保证页面的正常显示
+//不传name同样也会报错
+//不传性别。页面上性别就是不男不女
+//年龄不传默认值就是18
+ReactDOM.render(&lt;Person name={100}/&gt;,document.getElementById(&quot;test2&quot;))
+</code></pre>
+<p>下载： {% link prop-type <a href="https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/prop-types.js">https://react-1300475487.cos.ap-chengdu.myqcloud.com/16.8.4/prop-types.js</a> %}</p>
+<h3 id="简写props"><a href="#简写props" class="headerlink" title="简写props"></a>简写props</h3><p>将propTypes和defaultProps放到类自身里面</p>
+<pre><code class="jsx">class Person extends React.Component {
+  render(){
+    let {name,age,sex} = this.props
+    return (
+        &lt;ul&gt;
+        &lt;li&gt;姓名：{name}&lt;/li&gt;
+        &lt;li&gt;性别：{sex}&lt;/li&gt;
+        &lt;li&gt;年龄：{age+1}&lt;/li&gt;
+      &lt;/ul&gt;
+    )
+  }
+  //只负责这样写，React帮你限制
+  static propTypes = {
+    name: PropTypes.string.isRequried 
+    sex: PropStypes.string 
+    age: PropStypes.number 
+  }
+  //指定默认的标签属性值
+  static defaultProps = {
+    sex:&quot;男&quot;, 
+    age: 18 
+  }
+}
+//渲染组件
+ReactDOM.render(&lt;Person name=&quot;tom&quot; age={18} sex=&quot;女&quot;/&gt;,document.getElementById(&quot;test&quot;))
+ReactDOM.render(&lt;Person name=&quot;jerry&quot; age={19} sex=&quot;男&quot;/&gt;,document.getElementById(&quot;test1&quot;))
+</code></pre>
+<h2 id="构造器与props"><a href="#构造器与props" class="headerlink" title="构造器与props"></a>构造器与props</h2><p>之前定义Person组件没有构造器，现在加上构造器</p>
+<pre><code class="jsx">class Person extends React.Component {
+  //可以省略构造器，但是写了构造器后不接也不在super里传props，就无法在构造器中用实例获取props
+  //构造器是否接收props，是否传递给super，取决于构造器里是否需要通过this访问props
+  constructor(props){
+    console.log(props)// Person{name:&quot;tom&quot;,sex:18,age:&quot;女&quot;}
+  }
+  render(){
+    let {name,age,sex} = this.props
+    return (
+        &lt;ul&gt;
+        &lt;li&gt;姓名：{name}&lt;/li&gt;
+        &lt;li&gt;性别：{sex}&lt;/li&gt;
+        &lt;li&gt;年龄：{age+1}&lt;/li&gt;
+      &lt;/ul&gt;
+    )
+  }
+  //只负责这样写，React帮你限制
+  static propTypes = {
+    name: PropTypes.string.isRequried 
+    sex: PropStypes.string 
+    age: PropStypes.number 
+  }
+  //指定默认的标签属性值
+  static defaultProps = {
+    sex:&quot;男&quot;, 
+    age: 18 
+  }
+}
+ReactDOM.render(&lt;Person name=&quot;tom&quot;/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>在 React 组件挂载之前，会调用它的构造函数。在为 React.Component 子类实现构造函数时，应在其他语句之前调用 <code>super(props)</code>。否则，<code>this.props</code> 在构造函数中可能会出现未定义的 bug。</p>
+<p>通常，在 React 中，构造函数仅用于以下两种情况：</p>
+<ul>
+<li>通过给 <code>this.state</code> 赋值对象来初始化{% link 内部 state <a href="https://zh-hans.reactjs.org/docs/state-and-lifecycle.html">https://zh-hans.reactjs.org/docs/state-and-lifecycle.html</a> %}。</li>
+<li>为{% link 事件处理函数 <a href="https://zh-hans.reactjs.org/docs/handling-events.html">https://zh-hans.reactjs.org/docs/handling-events.html</a> %}绑定实例</li>
+</ul>
