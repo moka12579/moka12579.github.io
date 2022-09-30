@@ -91,12 +91,12 @@
 </li>
 </ol>
 <h1 id="几张图解释"><a href="#几张图解释" class="headerlink" title="几张图解释"></a>几张图解释</h1><p>用原生js实现显示数据</p>
-<p><img src="/react%E5%9F%BA%E7%A1%80/%E5%88%9D%E8%AF%86react/js.png" alt="截屏2022-09-22 19.42.51"></p>
+<p><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/js.png"></p>
 <p>如果数组不会更新，静态的页面，写死就可以，如果多了一个人，又要拿一堆数据便利，然后又来了一次innerHTML。但是原来页面中的鹿晗-18，李现-19就不会被复用，被新的innerHTML所覆盖。如下图所示</p>
-<p><img src="/react%E5%9F%BA%E7%A1%80/%E5%88%9D%E8%AF%86react/js1.png" alt="截屏2022-09-22 19.46.49"></p>
+<p><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/js1.png"></p>
 <p>纯js实现：如果原来有100个人，新增了一个人，那么代价就是原来的100个人没一个用得上的，用101个人去重绘了一遍网页</p>
 <p>react如何做的</p>
-<p><img src="/react%E5%9F%BA%E7%A1%80/%E5%88%9D%E8%AF%86react/react1.png" alt="截屏2022-09-22 19.49.17"></p>
+<p><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/react1.png"></p>
 <p>React是这么做的</p>
 <p>​	数据还是那两个人，React并没有直接动真实DOM，而是创建成了虚拟DOM，然后将虚拟DOM映射成真实DOM</p>
 <p>​	优势不是在第一次体现出来的，而是在后期数据更新</p>
