@@ -10,7 +10,7 @@ categories:
 
 需求如下，做这样的一个页面
 
-![截屏2022-09-26 18.52.27](jsx.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/jsx.png)
 
 ## 小试一下
 
@@ -34,7 +34,7 @@ ReactDOM.render(VDOM,document.getElementById("test"))
 
 效果
 
-![截屏2022-09-26 18.52.27](jsx.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/jsx.png)
 
 真实中肯定不是写死的，下面模拟一些数据
 
@@ -67,7 +67,7 @@ ReactDOM.render(VDOM,document.getElementById("test"))
 
 虽然有效果，但是控制台报错如下
 
-![截屏2022-09-26 19.15.31](error.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/error.png)
 
 大概意思是 `每一个节点在这个列表中都必须有一个唯一的key属性`
 
@@ -75,7 +75,7 @@ ReactDOM.render(VDOM,document.getElementById("test"))
 
 如果key给的值一样，则报如下错误
 
-![截屏2022-09-26 19.21.00](error2.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/error2.png)
 
 大概意思： `说有两个孩子的key一样，而key应该是唯一的`
 
@@ -93,12 +93,12 @@ data.map((item,index) => {
 
 拿个变量在左侧接，能接到的就是表达式
 
-  		1. 表达式：一个表达式会产生一个值，可以存放在任何一个需要值的地方。下面这些都是表达式：
-  	   		1. a （变量名）
-  	   		2. a+b
-  	   		3. demo(1) // demo函数没写返回值也会有默认的返回值为undefind
-  	   		4. arr.map() 
-  	   		5. function test() {} // 定义函数也有一个返回值
+  1. 表达式：一个表达式会产生一个值，可以存放在任何一个需要值的地方。下面这些都是表达式：
+	1. a （变量名）
+	2. a+b
+	3. demo(1) // demo函数没写返回值也会有默认的返回值为undefind
+	4. arr.map() 
+	5. function test() {} // 定义函数也有一个返回值
 
 2. 语句（代码） 下面这些都是
    1. if(){}

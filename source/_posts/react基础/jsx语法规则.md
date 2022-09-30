@@ -68,7 +68,7 @@ ReactDom.render(VDOM, document.getElementById("test"))
 
 效果
 
-![截屏2022-09-24 16.23.43](jsx.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/jsx1.png)
 
 ## 语法规则
 
@@ -210,39 +210,40 @@ ReactDom.render(VDOM, document.getElementById("test"))
 7. 标签首字母
 
    
-
-
-   1. 若小写字母开头，则将该标签转为HTML中同名元素，若HTML中无该标签对应的同名元素，则报错
-
-      ```jsx
-      //1. 创建虚拟DOM
-      const VDOM = (// 此处一定不要写引号，因为不是字符串
-        <good>123</good>
-        //虽然页面能显示123，但是控制台报错
-        //The tag <good> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.	
-        //React将写的html标签转换为html时，如果小写字母的标签，就会转换为html里的同名标签，
-        //比如写的span，就会转换为html里的span标签
-      )
-      //2. 渲染虚拟DOM到页面
-      // ReactDOM.render(虚拟DOM,容器)
-      // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
-      // 注意这句话不是追加的动作哦，这是替换的动作
-      ReactDom.render(VDOM, document.getElementById("test"))
-      ```
-
-      
-
-   2. 若大写字母开头，React就去渲染对应的组件，若组件没有定义，则报错
-
-      ```jsx
-      //1. 创建虚拟DOM
-      const VDOM = (// 此处一定不要写引号，因为不是字符串
-        <Good>123</Good>
-        //页面不显示，直接报错
-      )
-      //2. 渲染虚拟DOM到页面
-      // ReactDOM.render(虚拟DOM,容器)
-      // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
-      // 注意这句话不是追加的动作哦，这是替换的动作
-      ReactDom.render(VDOM, document.getElementById("test"))
-      ```
+   
+   
+      1. 若小写字母开头，则将该标签转为HTML中同名元素，若HTML中无该标签对应的同名元素，则报错
+         ```jsx
+         //1. 创建虚拟DOM
+         const VDOM = (// 此处一定不要写引号，因为不是字符串
+           <good>123</good>
+           //虽然页面能显示123，但是控制台报错
+           //The tag <good> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.	
+           //React将写的html标签转换为html时，如果小写字母的标签，就会转换为html里的同名标签，
+           //比如写的span，就会转换为html里的span标签
+         )
+         //2. 渲染虚拟DOM到页面
+         // ReactDOM.render(虚拟DOM,容器)
+         // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+         // 注意这句话不是追加的动作哦，这是替换的动作
+         ReactDom.render(VDOM, document.getElementById("test"))
+         ```
+         
+         
+         
+      1. 若大写字母开头，React就去渲染对应的组件，若组件没有定义，则报错
+   
+         ```jsx
+         //1. 创建虚拟DOM
+         const VDOM = (// 此处一定不要写引号，因为不是字符串
+           <Good>123</Good>
+           //页面不显示，直接报错
+         )
+         //2. 渲染虚拟DOM到页面
+         // ReactDOM.render(虚拟DOM,容器)
+         // React没有提供选择器，只能使用document，整个也就这里需要document，没有这个写不下去
+         // 注意这句话不是追加的动作哦，这是替换的动作
+         ReactDom.render(VDOM, document.getElementById("test"))
+         ```
+         
+         

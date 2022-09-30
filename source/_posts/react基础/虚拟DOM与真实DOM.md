@@ -48,7 +48,7 @@ categories:
 </html>
 ```
 
-![截屏2022-09-24 16.02.45](VDOM.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/VDOM.png)
 
 输出一个Object代表虚拟DOM并不是什么高大上的东西，就是一个普通的Object的对象
 

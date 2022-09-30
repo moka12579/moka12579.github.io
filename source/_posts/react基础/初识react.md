@@ -123,17 +123,17 @@ categories:
 
 用原生js实现显示数据
 
-![截屏2022-09-22 19.42.51](js.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/js.png)
 
 如果数组不会更新，静态的页面，写死就可以，如果多了一个人，又要拿一堆数据便利，然后又来了一次innerHTML。但是原来页面中的鹿晗-18，李现-19就不会被复用，被新的innerHTML所覆盖。如下图所示
 
-![截屏2022-09-22 19.46.49](js1.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/js1.png)
 
 纯js实现：如果原来有100个人，新增了一个人，那么代价就是原来的100个人没一个用得上的，用101个人去重绘了一遍网页
 
 react如何做的
 
-![截屏2022-09-22 19.49.17](react1.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/react1.png)
 
 React是这么做的
 

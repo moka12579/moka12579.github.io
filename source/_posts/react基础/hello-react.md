@@ -20,7 +20,7 @@ categories:
 
 ## 效果
 
-![截屏2022-09-23 09.16.13](react效果.png)
+![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/react效果.png)
 
 ## 相关js库
 
@@ -110,11 +110,11 @@ categories:
 
 4. 运行效果
 
-   1. ![截屏2022-09-23 09.16.13](react效果.png)
+   1. ![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/react效果.png)
 
    2. 控制台有一些警告
 
-      ![截屏2022-09-23 11.07.57](warn.png)
+      ![](https://react-1300475487.cos.ap-chengdu.myqcloud.com/warn.png)
 
       第一个输出是因为没有在浏览器安装开发者工具
 
