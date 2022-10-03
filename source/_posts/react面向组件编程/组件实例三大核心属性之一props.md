@@ -182,3 +182,41 @@ ReactDOM.render(<Person name="tom"/>,document.getElementById("test"))
 
 - 通过给 `this.state` 赋值对象来初始化{% link 内部 state https://zh-hans.reactjs.org/docs/state-and-lifecycle.html %}。
 - 为{% link 事件处理函数 https://zh-hans.reactjs.org/docs/handling-events.html %}绑定实例
+
+## 函数式组件上的props
+
+函数式也就只有三大属性之一的props
+
+```jsx
+// 所有传递的标签属性都收集成一个对象
+function Person(props){
+  //类式组件可以使用this.props获取属性值，但是函数没有this
+  const {name,sex,age} = props
+  return (
+  	<ul>
+      <li>姓名：{name}</li>
+      <li>性别：{sex}</li>
+      <li>年龄：{age}</li>
+    </ul>
+  )
+}
+//限制变量
+Person.propTypes = {
+  name: PropTypes.string.isRequried 
+  sex: PropTypes.string 
+  age: PropTypes.number 
+}
+  //指定默认的标签属性值
+Person.defaultProps = {
+  sex:"男", 
+  age: 18 
+}
+
+ReactDOM.render(<Person name="tom"/>,document.getElementById("test"))
+```
+
+# 总结
+
+1. `<Person name="tom" age={18} sex="女"/>` 算是标签属性，可以使用结构运算符 `<Person {...p}/>` 全部都收集好了，类式组件收集到了组件实例对象的props里，收集到的是对象形式，限制变量是 `propTypes` ，默认值是 `defaultProps` ，需要注意的是 `propTypes` 和 `PropTypes` 的区别，简写就是放到类的对象里，函数式组件就只能放到外面
+2. 注意：组件内部不能修改props的值
+3. React 15.5以后 `PropTypes` 成为一个新的库，15.5之前需要 `React.PropTypes`
