@@ -1,0 +1,62 @@
+<hr>
+<p>title: 非受控组件<br>date: 2022-10-03 16:31:57<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="非受控组件"><a href="#非受控组件" class="headerlink" title="非受控组件"></a>非受控组件</h1><p>页面中所有输入类DOM元素，现用现取就是非受控组件</p>
+<p>有这样一个需要，接收用户输入的用户名和密码，点击登录后有弹窗提示</p>
+<pre><code class="jsx">//创建组件
+class Login extends React.Component{
+  render(){
+    return(
+        &lt;from action=&quot;https://www.baidu.com&quot;&gt;
+          用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/input&gt;
+        密码：&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/input&gt;
+        &lt;button&gt;登录&lt;/button&gt;
+      &lt;/from&gt;
+    )
+  }
+}
+ReactDOM.render(&lt;Login/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>点击登录后就会跳转到百度的地址，并且携带username和password</p>
+<p>from表单有一个事件</p>
+<pre><code class="jsx">//创建组件
+class Login extends React.Component{
+  handleSubmit = () =&gt; {
+    const{username,password} = this
+    alert(`你输入的用户名是${username.value}，你输入的密码是${password.value}`) 
+  }
+  render(){
+    return(
+        &lt;from action=&quot;https://www.baidu.com&quot; onSubmit={this.handleSubmit}&gt;
+          用户名：&lt;input ref={c =&gt; this.username = c} type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/input&gt;
+        密码：&lt;input ref={c =&gt; this.password = c} type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/input&gt;
+        &lt;button&gt;登录&lt;/button&gt;
+      &lt;/from&gt;
+    )
+  }
+}
+ReactDOM.render(&lt;Login/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>禁止表单提交</p>
+<pre><code class="jsx">//创建组件
+class Login extends React.Component{
+  handleSubmit = () =&gt; {
+    event.preventDefault()
+    const{username,password} = this
+    alert(`你输入的用户名是${username.value}，你输入的密码是${password.value}`) 
+  }
+  render(){
+    return(
+        &lt;from onSubmit={this.handleSubmit}&gt;
+          用户名：&lt;input ref={c =&gt; this.username = c} type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/input&gt;
+        密码：&lt;input ref={c =&gt; this.password = c} type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/input&gt;
+        &lt;button&gt;登录&lt;/button&gt;
+      &lt;/from&gt;
+    )
+  }
+}
+ReactDOM.render(&lt;Login/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>

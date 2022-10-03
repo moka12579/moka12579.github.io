@@ -1,0 +1,45 @@
+<hr>
+<p>title: 受控组件<br>date: 2022-10-03 16:53:35<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="受控组件"><a href="#受控组件" class="headerlink" title="受控组件"></a>受控组件</h1><p>页面中所有输入类的DOM元素，随着输入就把输入的东西维护到状态里，用的时候从状态里面取出来</p>
+<p>其实就是vue里面的双向数据绑定</p>
+<p>受控组件不用写ref，非受控组件有几个输入类DOM，就需要写多少个ref</p>
+<p>还是那个需求</p>
+<pre><code class="jsx">//创建组件
+class Login extends React.Component{
+  
+  //初始化状态
+  state={
+    username:&quot;&quot;,//用户名
+    password:&quot;&quot;//密码
+  }
+  
+  saveUsername = (event) =&gt; {
+    console.log(event.target.value) // 随着用户名的输入，每次都拿到最新的值
+    this.setState({username:event.target.value}) //将用户名存入状态
+  }
+  savePassword = (event) =&gt; {
+    console.log(event.target.value) // 随着密码的输入，每次都拿到最新的值
+    this.setState({password:event.target.value}) //将密码存入状态
+  }
+  //表单提交的回调
+  handleSubmit = () =&gt; {
+    event.preventDefault()
+    const {username,password} = this.state // 取到的username和password都是值，不再是DOM元素节点
+    alert(`你输入的用户名是${username}，你输入的密码是${password}`)
+  }
+  render(){
+    return(
+        &lt;from onSubmit={this.handleSubmit}&gt;
+          用户名：&lt;input onChange={this.saveUsername} type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/input&gt;
+        密码：&lt;input onChange={this.savePassword} type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/input&gt;
+        &lt;button&gt;登录&lt;/button&gt;
+      &lt;/from&gt;
+    )
+  }
+}
+ReactDOM.render(&lt;Login/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
