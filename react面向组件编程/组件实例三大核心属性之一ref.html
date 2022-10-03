@@ -1,0 +1,172 @@
+<hr>
+<p>title: 组件实例三大核心属性之一ref<br>date: 2022-10-03 15:09:48<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="组件实例三大核心属性之一ref"><a href="#组件实例三大核心属性之一ref" class="headerlink" title="组件实例三大核心属性之一ref"></a>组件实例三大核心属性之一ref</h1><h2 id="字符串形式的ref"><a href="#字符串形式的ref" class="headerlink" title="字符串形式的ref"></a>字符串形式的ref</h2><p>做一个小效果</p>
+<p><img src="https://react-1300475487.cos.ap-chengdu.myqcloud.com/ref%E6%95%88%E6%9E%9C.png"></p>
+<p>左侧输入框输入值以后点击中间的按钮，弹窗显示输入的内容</p>
+<p>右侧输入框失去焦点也会弹窗输入的内容</p>
+<p>ref就相当于原生js里的id</p>
+<pre><code class="jsx">//创建组件
+class Demo extends React.Component{
+  //展示左侧输入框的数据
+  showData = () =&gt; {
+    
+    //原生写法
+    //const input = document.getElementById(&quot;input1&quot;)
+    //alert(input.value)
+    
+    //console.log(this) // Demo组件的实例对象
+    //console.log(this.refs.input1)//当按钮点击后则拿到第一个input的节点，收集到的是虚拟DOM转成真实DOM后的节点
+    
+    const {input1} = this.refs
+    alert(input1.value)
+  }
+  showData2 = () =&gt; {
+    const {input2} = this.refs
+    alert(input2.value)
+  }
+  render(
+      return (
+        &lt;div&gt;
+             &lt;input ref=&quot;input1&quot; type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot;&gt;&lt;/input&gt;
+           &lt;button  onClick={this.showData}&gt;点我提示左侧的数据&lt;/button&gt;
+        &lt;input ref=&quot;input2&quot; onBlur={showData2} type=&quot;text&quot; placeholder=&quot;失去焦点提示数据&quot;&gt;&lt;/input&gt;
+      &lt;/div&gt;	
+    )
+  )
+}
+
+ReactDOM.render(&lt;Demo/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>字符串类型的ref即将被废弃 {% link 链接 <a href="https://react.docschina.org/docs/refs-and-the-dom.html#legacy-api-string-refs">https://react.docschina.org/docs/refs-and-the-dom.html#legacy-api-string-refs</a> %}</p>
+<p>字符串类型的ref存在一定的效率问题</p>
+<h2 id="回调函数形式的ref"><a href="#回调函数形式的ref" class="headerlink" title="回调函数形式的ref"></a>回调函数形式的ref</h2><pre><code class="jsx">//创建组件
+class Demo extends React.Component{
+  //展示左侧输入框的数据
+  showData = () =&gt; {
+    const {input1} = this
+    alert(input1.value)
+  }
+  showData2 = () =&gt; {
+    const {input2} = this
+    alert(input2.value)
+  }
+  render(
+      return (
+        &lt;div&gt;
+        &lt;!-- c 就是ref所在的节点 --&gt;
+             &lt;input ref={c =&gt; this.input1 = c} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot;&gt;&lt;/input&gt;
+           &lt;button onClick={this.showData}&gt;点我提示左侧的数据&lt;/button&gt;
+        &lt;input ref={c =&gt; this.input2 = c} onBlur={showData2} type=&quot;text&quot; placeholder=&quot;失去焦点提示数据&quot;&gt;&lt;/input&gt;
+      &lt;/div&gt;	
+    )
+  )
+}
+
+ReactDOM.render(&lt;Demo/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>回调执行次数的问题</p>
+<pre><code class="jsx">//创建组件
+class Demo extends React.Component{
+  state = {isHot:true}
+  showData = () =&gt; {
+    const {input1} = this
+    alert(input1.value)
+  }
+  changeWeather = () =&gt; {
+    const {isHot} = this.state
+    this.setState({isHot:!isHot})
+  }
+  render(
+      return (
+      const {isHot} = this.state
+        &lt;div&gt;
+        &lt;h2&gt;今天天气很{isHot?&quot;炎热&quot;:&quot;凉爽&quot;}&lt;/h2&gt;
+             &lt;input ref={c =&gt; {this.input1 = c;console.log(&quot;@&quot;,c)}} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot;&gt;&lt;/input&gt;
+           &lt;button onClick={this.showData}&gt;点我提示输入的数据&lt;/button&gt;
+                &lt;button onClick={this.changeWeather}&gt;点我切换天气&lt;/button&gt;
+      &lt;/div&gt;	
+    )
+  )
+}
+
+ReactDOM.render(&lt;Demo/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<p>肯定会调用一次</p>
+<p>官方说明：{% link 关于回调 refs 的说明 <a href="https://react.docschina.org/docs/refs-and-the-dom.html#caveats-with-callback-refs">https://react.docschina.org/docs/refs-and-the-dom.html#caveats-with-callback-refs</a> %}</p>
+<p>当加入切换天气功能后，<code>console.log(&quot;@&quot;,c)</code> 会输出两行 <code>@  null</code> 和  <code>@  节点元素</code></p>
+<p>当更新数据时，render就会重新调用，为了有一个清空的动作，ref里的函数就会收到一次null，一次真实的节点</p>
+<p>重新写一个input，ref写成类绑定的形式</p>
+<pre><code class="jsx">//创建组件
+class Demo extends React.Component{
+  state = {isHot:true}
+  showData = () =&gt; {
+    const {input1} = this
+    alert(input1.value)
+  }
+  changeWeather = () =&gt; {
+    const {isHot} = this.state
+    this.setState({isHot:!isHot})
+  }
+  saveInput = c =&gt; {
+    this.input1 = c;
+    console.log(&quot;@&quot;,c)}
+  render(
+      return (
+      const {isHot} = this.state
+        &lt;div&gt;
+        &lt;h2&gt;今天天气很{isHot?&quot;炎热&quot;:&quot;凉爽&quot;}&lt;/h2&gt;
+                {/*这种形式避免了那两行输出 */}
+                {/* 内联的方式写的很多 */}
+             &lt;input ref={this.saveInput} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot;&gt;&lt;/input&gt;
+           &lt;button onClick={this.showData}&gt;点我提示输入的数据&lt;/button&gt;
+                &lt;button onClick={this.changeWeather}&gt;点我切换天气&lt;/button&gt;
+      &lt;/div&gt;	
+    )
+  )
+}
+
+ReactDOM.render(&lt;Demo/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<h2 id="createRef-API"><a href="#createRef-API" class="headerlink" title="createRef API"></a>createRef API</h2><p>{% link 官方链接 <a href="https://react.docschina.org/docs/refs-and-the-dom.html#creating-refs">https://react.docschina.org/docs/refs-and-the-dom.html#creating-refs</a> %}</p>
+<p>返回一个容器，该容器专人专用，只能存一个。后放进去的几点就会顶掉之前存进去的</p>
+<p>用几个ref，就需要创建几个ref容器</p>
+<p>React最推荐的方式</p>
+<pre><code class="jsx">//创建组件
+class Demo extends React.Component{
+  /*
+      React.createRef返回一个容器，该容器可以存储被ref所标识的节点
+  */
+  myRef = React.createRef()
+  myRe2 = React.createRef()
+  //展示左侧输入框的数据
+  showData = () =&gt; {
+    console.log(this.myRef) // 输出的是一个对象，对象里包含当前被标识的节点
+    alert(this.myRef.current.value)
+  }
+  showData2 = () =&gt; {
+    alert(this.myRef2.current.value)
+  }
+  render(
+      return (
+        &lt;div&gt;
+        {/* 会将当前节点存入myRef这个容器 */}
+             &lt;input ref={this.myRef} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot;&gt;&lt;/input&gt;
+           &lt;button onClick={this.showData}&gt;点我提示输入的数据&lt;/button&gt;
+       &lt;input onBlur={this.showData2} ref={this.myRef2} type=&quot;text&quot; placeholder=&quot;失去焦点提示数据&quot;&gt;&lt;/input&gt;
+      &lt;/div&gt;	
+    )
+  )
+}
+
+ReactDOM.render(&lt;Demo/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>字符串形式的ref是最简单的，条件允许的情况下可以使用字符串形式的ref，但是能避免就尽量避免</li>
+<li>回调形式的ref不会自动收集，稍微麻烦一点</li>
+<li>类绑定形式的就是一个扩展，其实一直在用的就是回调形式的ref</li>
+<li>createRef是最麻烦的一种，目前react最推荐的一种</li>
+</ol>

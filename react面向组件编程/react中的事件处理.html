@@ -1,0 +1,44 @@
+<hr>
+<p>title: react中的事件处理<br>date: 2022-10-03 16:18:13<br>tags: react面向组件编程<br>categories:	</p>
+<ul>
+<li>react面向组件编程</li>
+</ul>
+<hr>
+<h1 id="react中的事件处理"><a href="#react中的事件处理" class="headerlink" title="react中的事件处理"></a>react中的事件处理</h1><p>还是之前的案例</p>
+<ol>
+<li>通过onxxx属性绑定事件处理函数（注意大小写）<ol>
+<li>react中使用的是自定义（合成）事件，而不是使用原生DOM事件 —— 为了更好的兼容性</li>
+<li>React中的事件是通过事件委托方式处理的 —— 为了高效</li>
+</ol>
+</li>
+<li>通过event.target得到发生事件的DOM元素对象 —— {% link 不要过度使用ref <a href="https://react.docschina.org/docs/refs-and-the-dom.html#dont-overuse-refs">https://react.docschina.org/docs/refs-and-the-dom.html#dont-overuse-refs</a> %}</li>
+</ol>
+<pre><code class="jsx">//创建组件
+class Demo extends React.Component{
+  /*
+      React.createRef返回一个容器，该容器可以存储被ref所标识的节点
+  */
+  myRef = React.createRef()
+  myRe2 = React.createRef()
+  //展示左侧输入框的数据
+  showData = () =&gt; {
+    console.log(this.myRef) // 输出的是一个对象，对象里包含当前被标识的节点
+    alert(this.myRef.current.value)
+  }
+  showData2 = () =&gt; {
+    alert(event.target.value)
+  }
+  render(
+      return (
+        &lt;div&gt;
+        {/* 会将当前节点存入myRef这个容器 */}
+             &lt;input ref={this.myRef} type=&quot;text&quot; placeholder=&quot;点击按钮提示数据&quot;&gt;&lt;/input&gt;
+           &lt;button onClick={this.showData}&gt;点我提示输入的数据&lt;/button&gt;
+       &lt;input onBlur={this.showData2} type=&quot;text&quot; placeholder=&quot;失去焦点提示数据&quot;&gt;&lt;/input&gt;
+      &lt;/div&gt;	
+    )
+  )
+}
+
+ReactDOM.render(&lt;Demo/&gt;,document.getElementById(&quot;test&quot;))
+</code></pre>
